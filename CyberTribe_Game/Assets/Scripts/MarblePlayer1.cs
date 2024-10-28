@@ -15,6 +15,8 @@ public class MarblePlayer1 : MonoBehaviour
     public  float MaxDistance = 3f;
     private float SafeSpace;
     private float ShootPower;
+
+    private Vector3 ShootDirection;
     
     private void Awake()
     {
@@ -44,6 +46,13 @@ public class MarblePlayer1 : MonoBehaviour
 
         //This is a restraint so that it doesnt move outside the boundaries.
         MousePointB.transform.position = new Vector3( MousePointB.transform.position.x, MousePointB.transform.position.y, -0.8f);
-        
+
+        ShootDirection = Vector3.Normalize(MousePointA.transform.position - transform.position);
+    }
+
+    private void OnMouseUp()
+    {
+        Vector3 Push = ShootDirection * ShootPower * -1;
+        GetComponent<Rigidbody>().AddForce(Push, ForceMode.Impulse);
     }
 }
