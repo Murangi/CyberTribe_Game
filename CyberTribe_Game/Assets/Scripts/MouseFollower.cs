@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class MouseFollower : MonoBehaviour
 {
-    private float yOffset = 10f;  // Desired y offset
-    private Vector3 targetPosition;
+    private float yOffset = 10f;  // Fixed y offset
+    private Vector3 TemporaryPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Set the initial position of the object at a desired point
-        transform.position = new Vector3(0, yOffset, 80);
+        transform.position = new Vector3(transform.position.x, yOffset, transform.position.z);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Convert the mouse position from screen space to world space with a fixed z distance
-        targetPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
+        // Convert mouse position to world space with a fixed z distance from the camera
+        TemporaryPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y - yOffset));
 
-        // Directly set the position to follow the mouse exactly, with a fixed y offset
-        transform.position = new Vector3(targetPosition.x, yOffset, targetPosition.z);
+        // Set the object's position to match the mouse's position on x and z axes, with a fixed y offset
+        transform.position = new Vector3(TemporaryPosition.x, yOffset, TemporaryPosition.z);
     }
 }
-
