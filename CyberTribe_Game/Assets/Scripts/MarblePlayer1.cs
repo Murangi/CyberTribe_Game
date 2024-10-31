@@ -7,8 +7,8 @@ public class MarblePlayer1 : MonoBehaviour
 
     private GameObject MousePointA;
     private GameObject MousePointB;
-    private GameObject Arrow;
-    private GameObject Circle;
+    private GameObject arrow;
+    private GameObject circle;
 
     //Current Distance Variables
     private float CurrentDistance;
@@ -22,6 +22,8 @@ public class MarblePlayer1 : MonoBehaviour
     {
         MousePointA = GameObject.FindGameObjectWithTag("PointA");
         MousePointB = GameObject.FindGameObjectWithTag("PointB");
+        arrow = GameObject.FindGameObjectWithTag("Arrow");
+        circle = GameObject.FindGameObjectWithTag("Circle");
     }
 
     private void OnMouseDrag()
@@ -53,9 +55,21 @@ public class MarblePlayer1 : MonoBehaviour
     }
 
     private void OnMouseUp()
-    {
+    {   
+        arrow.GetComponent<Renderer>().enabled = false;
+        circle.GetComponent<Renderer>().enabled = false;
         Vector3 Push = ShootDirection * ShootPower * -1;
         GetComponent<Rigidbody>().AddForce(Push, ForceMode.Impulse);
+    }
+
+    private void ArrowAndCircleFunctionality()
+    {
+       arrow.GetComponent<Renderer>().enabled = true;
+       circle.GetComponent<Renderer>().enabled = true;   
+
+       //Calculate the distance
+       
+
     }
 }
 
