@@ -38,14 +38,16 @@ public class MarblePlayer1 : MonoBehaviour
         }
 
         //Calculate shot power and direction
-        ShootPower = Mathf.Abs(SafeSpace) * 100;
+        ShootPower = Mathf.Abs(SafeSpace) * 70;
         Vector3 DimensionsXY = MousePointA.transform.position - transform.position;
         float Difference = DimensionsXY.magnitude;
 
         MousePointB.transform.position = transform.position + ((DimensionsXY / Difference) * CurrentDistance * -1);
 
         //This is a restraint so that it doesnt move outside the boundaries.
-        MousePointB.transform.position = new Vector3( MousePointB.transform.position.x, MousePointB.transform.position.y, -0.8f);
+        MousePointB.transform.position = new Vector3( MousePointB.transform.position.x, 10f ,MousePointB.transform.position.z);
+
+        
 
         ShootDirection = Vector3.Normalize(MousePointA.transform.position - transform.position);
     }
