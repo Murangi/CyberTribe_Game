@@ -38,7 +38,7 @@ public class MarblePlayer1 : MonoBehaviour
         }
 
         //Calculate shot power and direction
-        ShootPower = Mathf.Abs(SafeSpace) * 500;
+        ShootPower = Mathf.Abs(SafeSpace) * 100;
         Vector3 DimensionsXY = MousePointA.transform.position - transform.position;
         float Difference = DimensionsXY.magnitude;
 
@@ -56,3 +56,4 @@ public class MarblePlayer1 : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(Push, ForceMode.Impulse);
     }
 }
+
