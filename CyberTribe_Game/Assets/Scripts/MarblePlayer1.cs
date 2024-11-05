@@ -11,9 +11,9 @@ public class MarblePlayer1 : MonoBehaviour
 
     // Current Distance Variables
     private float CurrentDistance;
-    public float MaxDistance = 3f;
-    private float SafeSpace;
-    private float ShootPower;
+    public const float MaxDistance = 90f;
+    private float SafeSpace = 0f;
+    private float ShootPower = 0f;
 
     private Vector3 ShootDirection;
 
@@ -33,37 +33,64 @@ public class MarblePlayer1 : MonoBehaviour
     {
         // Show the arrow when the mouse is clicked
         arrow.GetComponent<Renderer>().enabled = true;
-
-        arrow.transform.rotation = Quaternion.Euler(0,180, 0);
+        arrow.transform.rotation = Quaternion.Euler(0, 180, 0);
     }
 
     private void OnMouseDrag()
     {
-        // Update current distance between MousePointA and the marble's position
-        CurrentDistance = Vector3.Distance(MousePointA.transform.position, transform.position);
+        // Get the mouse position in world coordinates
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y - transform.position.y));
 
-        if (CurrentDistance <= MaxDistance)
+        // Calculate the direction from the marble to the mouse position
+        Vector3 directionToMouse = (mousePosition - transform.position).normalized;
+
+        // Calculate the current distance from the marble to the mouse position
+        float distanceToMouse = Vector3.Distance(mousePosition, transform.position);
+
+        // Clamp MousePointA’s position to be within MaxDistance
+        if (distanceToMouse > MaxDistance)
         {
-            SafeSpace = CurrentDistance;
+            // Set MousePointA’s position to the point at MaxDistance in the direction of the mouse position
+            MousePointA.transform.position = transform.position + directionToMouse * MaxDistance;
+            CurrentDistance = MaxDistance;
         }
         else
         {
-            SafeSpace = MaxDistance;
+            MousePointA.transform.position = mousePosition;
+            CurrentDistance = distanceToMouse;
         }
 
+        // Set SafeSpace to the clamped distance
+        SafeSpace = CurrentDistance;
+
         // Calculate shot power and direction
-        ShootPower = Mathf.Abs(SafeSpace) * 300;
+        ShootPower = SafeSpace * 10;
         Vector3 DimensionsXY = MousePointA.transform.position - transform.position;
         float Difference = DimensionsXY.magnitude;
 
         // Update MousePointB to follow the mouse within bounds
-        MousePointB.transform.position = transform.position + ((DimensionsXY / Difference) * SafeSpace * -1);
+        if (Difference != 0)  // Prevent division by zero
+        {
+            MousePointB.transform.position = transform.position + ((DimensionsXY / Difference) * SafeSpace * -1);
 
-        // Restrict MousePointB to the marble’s y-position to keep it level
-        MousePointB.transform.position = new Vector3(MousePointB.transform.position.x, transform.position.y, MousePointB.transform.position.z);
+            // Clamp MousePointB to MaxDistance if it exceeds it
+            float MousePointBDistance = Vector3.Distance(MousePointB.transform.position, transform.position);
+            if (MousePointBDistance > MaxDistance)
+            {
+                MousePointB.transform.position = transform.position + ((DimensionsXY / Difference) * MaxDistance * -1);
+            }
+
+            // Restrict MousePointB to the marble’s y-position to keep it level
+            MousePointB.transform.position = new Vector3(MousePointB.transform.position.x, transform.position.y, MousePointB.transform.position.z);
+        }
 
         // Calculate ShootDirection only in the x-z plane
         ShootDirection = Vector3.Normalize(new Vector3(DimensionsXY.x, 0f, DimensionsXY.z));
+
+        Debug.Log($"CurrentDistance: {CurrentDistance}, MaxDistance: {MaxDistance}, SafeSpace: {SafeSpace}");
+        Debug.Log($"MousePointA Position: {MousePointA.transform.position}");
+        Debug.Log($"Marble Position: {transform.position}");
+        Debug.Log($"CurrentDistance: {CurrentDistance}");
 
         // Call ArrowFunctionality to update positions and directions
         ArrowFunctionality();
@@ -82,8 +109,7 @@ public class MarblePlayer1 : MonoBehaviour
     private void ArrowFunctionality()
     {
         float arrowOffsetDistance = 0.5f; // Adjust this offset value as needed
-
-        arrow.transform.rotation = Quaternion.Euler(0,180, 0);
+        arrow.transform.rotation = Quaternion.Euler(0, 180, 0);
 
         Vector3 arrowDirection;
 
@@ -117,7 +143,4 @@ public class MarblePlayer1 : MonoBehaviour
         arrow.transform.eulerAngles = new Vector3(0, RotAngle, 0);
     }
 }
-
-
-
 
