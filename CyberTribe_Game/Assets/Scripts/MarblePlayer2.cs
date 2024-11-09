@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MarblePlayer1 : MonoBehaviour
+public class MarblePlayer2 : MonoBehaviour
 {
     private GameObject MousePointA;
     private GameObject MousePointB;
@@ -168,7 +168,3 @@ public class MarblePlayer1 : MonoBehaviour
  
     }
 }
-
-
-
-

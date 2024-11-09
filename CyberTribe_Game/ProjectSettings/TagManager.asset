@@ -4,10 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PointA
-  - PointB
-  - Arrow
-  - Circle
+  - Marble_1
+  - Marble_6
   layers:
   - Default
   - TransparentFX
