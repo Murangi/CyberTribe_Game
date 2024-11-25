@@ -5,7 +5,31 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/MzanziMarbles.unity
+    guid: 23fbcb8da63d0984b86e18ed137e19a4
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5a759125085511d4985ef2068de36cb9
+  - enabled: 1
+    path: Assets/Scenes/GamePlay.unity
+    guid: 9fc0d25a941ba604eaa42b225529feea
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: a64ed31833da37d4aa089d9b3cf12e28
+  - enabled: 1
+    path: Assets/Scenes/Music.unity
+    guid: 94fc738bd4a831949bce444a36d48f1a
+  - enabled: 1
+    path: Assets/Scenes/CulturalOptions.unity
+    guid: c9a07bc3ff4f94749ae47e6249cc1b2b
+  - enabled: 1
+    path: Assets/Scenes/DifficultyLevel.unity
+    guid: 9464c8a77ad967e43b15d866251b3475
+  - enabled: 1
+    path: Assets/Scenes/ManualRules.unity
+    guid: 6bdcabb72be7adf4f8f1d0ded04d199f
   m_configObjects: {}
