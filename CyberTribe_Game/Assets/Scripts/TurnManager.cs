@@ -10,7 +10,7 @@ public class TurnManager : MonoBehaviour
     public float turnDuration = 15f;         // Duration of each turn in seconds
     private float timer;                     // Countdown timer
     private int currentPlayer = 1;           // 1 for Player 1, 2 for Player 2
-    const int NUM_MARBLES_PER_PLAYER = 5;
+    const int NUM_MARBLES_PER_PLAYER = 6;
     private const string SCRIPT_NAME = "MarblePlayer"; // Name of the script to disable
     private string scriptName;
 
@@ -19,18 +19,18 @@ public class TurnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject Marble1 = GameObject.FindGameObjectWithTag("Marble_1");
-        GameObject Marble2 = GameObject.FindGameObjectWithTag("Marble_6");
+        // GameObject Marble1 = GameObject.FindGameObjectWithTag("Marble_1");
+        // GameObject Marble2 = GameObject.FindGameObjectWithTag("Marble_6");
 
         //REMOVE, INTIALIZED IN DECLARATION
         // player1Marbles = new List<GameObject>();
         // player2Marbles = new List<GameObject>();
 
-        player1Marbles.Add(Marble1);
-        player1Marbles.Add(Marble2);
+        // player1Marbles.Add(Marble1);
+        // player1Marbles.Add(Marble2);
 
-        // AddPlayer1Marbles();
-        // AddPlayer2Marbles();
+        AddPlayer1Marbles();
+        AddPlayer2Marbles();
 
         StartTurn();
     }
@@ -54,19 +54,19 @@ public class TurnManager : MonoBehaviour
         if (currentPlayer == 1)
         {
             // Enable Player 1's marbles and disable Player 2's marbles
-            // SetMarbleInteraction(player1Marbles, true);
-            // SetMarbleInteraction(player2Marbles, false);
-            SetMarbleInteraction(GameObject.FindGameObjectWithTag("Marble_1"), true);
-            SetMarbleInteraction(GameObject.FindGameObjectWithTag("Marble_6"), false);
+            SetMarbleInteraction(player1Marbles, true);
+            SetMarbleInteraction(player2Marbles, false);
+            // SetMarbleInteraction(GameObject.FindGameObjectWithTag("Marble_1"), true);
+            // SetMarbleInteraction(GameObject.FindGameObjectWithTag("Marble_6"), false);
 
         }
         else
         {
             // Enable Player 2's marbles and disable Player 1's marbles
-            // SetMarbleInteraction(player1Marbles, false);
-            // SetMarbleInteraction(player2Marbles, true);
-            SetMarbleInteraction(GameObject.FindGameObjectWithTag("Marble_1"), false);
-            SetMarbleInteraction(GameObject.FindGameObjectWithTag("Marble_6"), true);
+            SetMarbleInteraction(player1Marbles, false);
+            SetMarbleInteraction(player2Marbles, true);
+            // SetMarbleInteraction(GameObject.FindGameObjectWithTag("Marble_1"), false);
+            // SetMarbleInteraction(GameObject.FindGameObjectWithTag("Marble_6"), true);
         }
 
         Debug.Log("Player " + currentPlayer + "'s turn started.");
@@ -147,27 +147,45 @@ public class TurnManager : MonoBehaviour
     //TEST THESES THEN ADD TO START FUNCTION
     private void AddPlayer1Marbles()
     {
-        GameObject marble;
+        //remove
+        /* GameObject marble;
 
-        for (int i = 1; i <= NUM_MARBLES_PER_PLAYER; i++)
-        {
-            // marble = GameObject.FindGameObjectWithTag("Marble_" + Convert.ToString(i));
-            marble = GameObject.FindGameObjectWithTag("Marble_1");
-            player1Marbles.Add(marble);
-        }
+         for (int i = 1; i <= NUM_MARBLES_PER_PLAYER; i++)
+         {
+             marble = GameObject.FindGameObjectWithTag("Marble_" + Convert.ToString(i));
+             marble = GameObject.findGame
+             // marble = GameObject.FindGameObjectWithTag("Marble_1");
+             player1Marbles.Add(marble);
+         }*/
+
+        player1Marbles.AddRange(GameObject.FindGameObjectsWithTag("Marble_1"));
+
+
+        //remove - just for testing
+        Debug.Log("Player 1 marbles");
+        foreach (var item in player1Marbles)
+            Debug.Log("\t" + item.name);
     }
 
     private void AddPlayer2Marbles()
     {
-        GameObject marble;
+        //remove 
+        /*GameObject marble;
 
-        // for (int i = NUM_MARBLES_PER_PLAYER + 1; i <= NUM_MARBLES_PER_PLAYER * 2; i++)
-        for (int i = 1; i <= NUM_MARBLES_PER_PLAYER; i++)
+        for (int i = NUM_MARBLES_PER_PLAYER + 1; i <= NUM_MARBLES_PER_PLAYER * 2; i++)
+        // for (int i = 1; i <= NUM_MARBLES_PER_PLAYER; i++)
         {
-            // marble = GameObject.FindGameObjectWithTag("Marble_" + Convert.ToString(i));
-            marble = GameObject.FindGameObjectWithTag("Marble_6");
+            marble = GameObject.FindGameObjectWithTag("Marble_" + Convert.ToString(i));
+            // marble = GameObject.FindGameObjectWithTag("Marble_6");
             player2Marbles.Add(marble);
-        }
+        }*/
+
+        player2Marbles.AddRange(GameObject.FindGameObjectsWithTag("Marble_6"));
+
+        //remove - just for testing
+        Debug.Log("Player 2 marbles");
+        foreach (var item in player2Marbles)
+            Debug.Log("\t" + item.name);
     }
 
     void DisableScript(GameObject marble, string scriptName)
