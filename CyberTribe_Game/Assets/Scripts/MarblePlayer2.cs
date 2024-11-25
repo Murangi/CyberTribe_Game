@@ -157,21 +157,21 @@ public class MarblePlayer2 : MonoBehaviour
  
         if (passed_north_goal)
         {
-            Debug.Log("X Position: " + x_pos);
+            /*Debug.Log("X Position: " + x_pos);
             Debug.Log("Y Position: " + z_pos);
-            Debug.Log("passed north goal line.");
+            Debug.Log("passed north goal line.");*/
         }
         else if (passed_south_goal)
         {
-            Debug.Log("X Position: " + x_pos);
+            /*Debug.Log("X Position: " + x_pos);
             Debug.Log("Y Position: " + z_pos);
-            Debug.Log("passed south goal line.");
+            Debug.Log("passed south goal line.");*/
         }
         else
         {
-            Debug.Log("X Position: " + x_pos);
+            /*Debug.Log("X Position: " + x_pos);
             Debug.Log("Y Position: " + z_pos);
-            Debug.Log("ball still in play.");
+            Debug.Log("ball still in play.");*/
         }
  
     }

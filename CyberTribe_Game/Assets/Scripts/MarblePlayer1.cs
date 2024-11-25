@@ -7,8 +7,8 @@ public class MarblePlayer1 : MonoBehaviour
     private GameObject MousePointA;
     private GameObject MousePointB;
     private LineRenderer lineRenderer;
-    
-           // Scale factor for line length
+
+    // Scale factor for line length
 
     // Current Distance Variables
     private float CurrentDistance;
@@ -30,7 +30,7 @@ public class MarblePlayer1 : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = false; // Hide it initially
         lineRenderer.positionCount = 2; // Start with two points for a basic line
-        
+
     }
 
     private void OnMouseDown()
@@ -130,7 +130,7 @@ public class MarblePlayer1 : MonoBehaviour
             lineEnd = hit.point + directionToExtend * maxReflectionDistance;
         }
 
-        
+
 
         // Add final extended position if no reflection
         lineRenderer.positionCount++;
@@ -140,32 +140,32 @@ public class MarblePlayer1 : MonoBehaviour
     void Update()
     {
         Vector3 position = gameObject.transform.position;
- 
+
         float x_pos = position.x;
         float z_pos = position.z;
- 
+
         bool passed_north_goal = ((x_pos > -GOAL_LINE && x_pos < GOAL_LINE) && (z_pos < NORTH_GOAL_DEPTH));
         bool passed_south_goal = ((x_pos > -GOAL_LINE && x_pos < GOAL_LINE) && (z_pos > SOUTH_GOAL_DEPTH));
- 
+
         if (passed_north_goal)
         {
-            Debug.Log("X Position: " + x_pos);
+            /*Debug.Log("X Position: " + x_pos);
             Debug.Log("Y Position: " + z_pos);
-            Debug.Log("passed north goal line.");
+            Debug.Log("passed north goal line.");*/
         }
         else if (passed_south_goal)
         {
-            Debug.Log("X Position: " + x_pos);
+            /*Debug.Log("X Position: " + x_pos);
             Debug.Log("Y Position: " + z_pos);
-            Debug.Log("passed south goal line.");
+            Debug.Log("passed south goal line.");*/
         }
         else
         {
-            Debug.Log("X Position: " + x_pos);
+            /*Debug.Log("X Position: " + x_pos);
             Debug.Log("Y Position: " + z_pos);
-            Debug.Log("ball still in play.");
+            Debug.Log("ball still in play.");*/
         }
- 
+
     }
 }
 
