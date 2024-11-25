@@ -30,4 +30,14 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void LoadSettingsScene()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void LoadGamePlayScene()
+    {
+        SceneManager.LoadScene(2);
+    }
+
 }
