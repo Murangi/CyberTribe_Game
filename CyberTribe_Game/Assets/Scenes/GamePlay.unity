@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d49c9666321454a9ddccdade40d850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ball2: {fileID: 0}
 --- !u!4 &1880274
 Transform:
   m_ObjectHideFlags: 0
@@ -492,39 +491,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 50, y: 1, z: 100}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &348354159
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348354159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e15707c89a7ddd498cf7661f9e79f48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1Marbles: []
-  player2Marbles: []
-  turnDuration: 15
---- !u!4 &348354161
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348354159}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 50, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1028,10 +994,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 891632772}
-    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 891632773}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!4 &891632764 stripped
 Transform:
@@ -1218,18 +1180,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &891632773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891632765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 819eea289ad46d746afa198f6f653129, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2044,7 +1994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db2e7ea8d41a7647b1ee5851fa2e032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ball1: {fileID: 0}
 --- !u!4 &1738198001
 Transform:
   m_ObjectHideFlags: 0
@@ -2324,4 +2273,3 @@ SceneRoots:
   - {fileID: 5202590640064675726}
   - {fileID: 1738198001}
   - {fileID: 1880274}
-  - {fileID: 348354161}
