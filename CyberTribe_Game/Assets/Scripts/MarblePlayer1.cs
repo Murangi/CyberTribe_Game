@@ -7,6 +7,7 @@ public class MarblePlayer1 : MonoBehaviour
     private GameObject MousePointA;
     private GameObject MousePointB;
     private LineRenderer lineRenderer;
+    
            // Scale factor for line length
 
     // Current Distance Variables
@@ -14,6 +15,9 @@ public class MarblePlayer1 : MonoBehaviour
     public const float MaxDistance = 120f;
     private float SafeSpace = 0f;
     private float ShootPower = 0f;
+    private const float GOAL_LINE = 50f;
+    private float NORTH_GOAL_DEPTH = GameObject.Find("North Wall 1").transform.position.z;
+    private float SOUTH_GOAL_DEPTH = GameObject.Find("South Wall 1").transform.position.z;
 
     private Vector3 ShootDirection;
 
@@ -139,10 +143,6 @@ public class MarblePlayer1 : MonoBehaviour
  
         float x_pos = position.x;
         float z_pos = position.z;
- 
-        const float GOAL_LINE = 50f;
-        float NORTH_GOAL_DEPTH = GameObject.Find("North Wall 1").transform.position.z;
-        float SOUTH_GOAL_DEPTH = GameObject.Find("South Wall 1").transform.position.z;
  
         bool passed_north_goal = ((x_pos > -GOAL_LINE && x_pos < GOAL_LINE) && (z_pos < NORTH_GOAL_DEPTH));
         bool passed_south_goal = ((x_pos > -GOAL_LINE && x_pos < GOAL_LINE) && (z_pos > SOUTH_GOAL_DEPTH));
