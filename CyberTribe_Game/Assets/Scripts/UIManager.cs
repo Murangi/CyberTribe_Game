@@ -43,16 +43,16 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(4);
     }
-    public void LoadCULTUREScene()
+    public void LoadGAMESETUPcene()
     {
         SceneManager.LoadScene(5);
     }
-    public void LoadDIFFLEVELScene()
-    {
-        SceneManager.LoadScene(6);
-    }
+    
+
     public void LoadMANURULESScene()
     {
         SceneManager.LoadScene(7);
     }
+
+
 }
