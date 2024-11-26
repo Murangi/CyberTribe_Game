@@ -15,10 +15,7 @@ public class MarblePlayer1 : MonoBehaviour
     public const float MaxDistance = 120f;
     private float SafeSpace = 0f;
     private float ShootPower = 0f;
-    private const float GOAL_LINE = 50f;
-    private float NORTH_GOAL_DEPTH = GameObject.Find("North Wall 1").transform.position.z;
-    private float SOUTH_GOAL_DEPTH = GameObject.Find("South Wall 1").transform.position.z;
-
+    // private const float GOAL_LINE = 50f;
     private Vector3 ShootDirection;
 
     private void Awake()
@@ -89,6 +86,7 @@ public class MarblePlayer1 : MonoBehaviour
         // Apply force in the x-z plane only, restricting y
         Vector3 Push = new Vector3(ShootDirection.x, 0f, ShootDirection.z) * ShootPower * -1;
         GetComponent<Rigidbody>().AddForce(Push, ForceMode.Impulse);
+        GetComponent<TurnManager>().MoveMade();
     }
 
     private void UpdateLine()
@@ -139,32 +137,6 @@ public class MarblePlayer1 : MonoBehaviour
 
     void Update()
     {
-        Vector3 position = gameObject.transform.position;
-
-        float x_pos = position.x;
-        float z_pos = position.z;
-
-        bool passed_north_goal = ((x_pos > -GOAL_LINE && x_pos < GOAL_LINE) && (z_pos < NORTH_GOAL_DEPTH));
-        bool passed_south_goal = ((x_pos > -GOAL_LINE && x_pos < GOAL_LINE) && (z_pos > SOUTH_GOAL_DEPTH));
-
-        if (passed_north_goal)
-        {
-            /*Debug.Log("X Position: " + x_pos);
-            Debug.Log("Y Position: " + z_pos);
-            Debug.Log("passed north goal line.");*/
-        }
-        else if (passed_south_goal)
-        {
-            /*Debug.Log("X Position: " + x_pos);
-            Debug.Log("Y Position: " + z_pos);
-            Debug.Log("passed south goal line.");*/
-        }
-        else
-        {
-            /*Debug.Log("X Position: " + x_pos);
-            Debug.Log("Y Position: " + z_pos);
-            Debug.Log("ball still in play.");*/
-        }
 
     }
 }

@@ -61,8 +61,8 @@ public class TurnManager : MonoBehaviour
     void EndTurn()
     {
         // Debug.Log("Player " + currentPlayer + "'s turn ended.");
-        EnableScripts();
         DisableScripts();
+        EnableScripts();
 
         // Switch player
         currentPlayer = (currentPlayer == 1) ? 2 : 1;
@@ -164,5 +164,10 @@ public class TurnManager : MonoBehaviour
                 if (marble.GetComponent<MarblePlayer1>() == null)
                     marble.AddComponent<MarblePlayer1>();
         }
+    }
+
+    public void MoveMade()
+    {
+        EndTurn();
     }
 }
