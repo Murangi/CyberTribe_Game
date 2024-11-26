@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TurnManager : MonoBehaviour
@@ -14,24 +15,18 @@ public class TurnManager : MonoBehaviour
     private const string SCRIPT_NAME = "MarblePlayer"; // Name of the script to disable
     private string scriptName;
 
-    //LineRenderer lr = marble.GetComponent<LineRenderer>();
-
     // Start is called before the first frame update
     void Start()
     {
-        // GameObject Marble1 = GameObject.FindGameObjectWithTag("Marble_1");
-        // GameObject Marble2 = GameObject.FindGameObjectWithTag("Marble_6");
-
-        //REMOVE, INTIALIZED IN DECLARATION
-        // player1Marbles = new List<GameObject>();
-        // player2Marbles = new List<GameObject>();
-
-        // player1Marbles.Add(Marble1);
-        // player1Marbles.Add(Marble2);
-
         AddPlayer1Marbles();
         AddPlayer2Marbles();
 
+        //disable player 2 marbles
+        foreach (var marble in player2Marbles)
+        {
+            Destroy(marble.GetComponent<MarblePlayer2>());
+            // marble.AddComponent<MarblePlayer2>();
+        }
         StartTurn();
     }
 
@@ -41,9 +36,7 @@ public class TurnManager : MonoBehaviour
         timer -= Time.deltaTime;
         // Check if the timer has run out
         if (timer <= 0)
-        {
             EndTurn();
-        }
     }
 
     void StartTurn()
@@ -56,25 +49,23 @@ public class TurnManager : MonoBehaviour
             // Enable Player 1's marbles and disable Player 2's marbles
             SetMarbleInteraction(player1Marbles, true);
             SetMarbleInteraction(player2Marbles, false);
-            // SetMarbleInteraction(GameObject.FindGameObjectWithTag("Marble_1"), true);
-            // SetMarbleInteraction(GameObject.FindGameObjectWithTag("Marble_6"), false);
-
         }
         else
         {
             // Enable Player 2's marbles and disable Player 1's marbles
             SetMarbleInteraction(player1Marbles, false);
             SetMarbleInteraction(player2Marbles, true);
-            // SetMarbleInteraction(GameObject.FindGameObjectWithTag("Marble_1"), false);
-            // SetMarbleInteraction(GameObject.FindGameObjectWithTag("Marble_6"), true);
         }
 
-        Debug.Log("Player " + currentPlayer + "'s turn started.");
+        // Debug.Log("Player " + currentPlayer + "'s turn started.");
     }
 
     void EndTurn()
     {
-        Debug.Log("Player " + currentPlayer + "'s turn ended.");
+        // Debug.Log("Player " + currentPlayer + "'s turn ended.");
+        EnableScripts();
+        DisableScripts();
+
         // Switch player
         currentPlayer = (currentPlayer == 1) ? 2 : 1;
 
@@ -85,16 +76,10 @@ public class TurnManager : MonoBehaviour
     private void SetMarbleInteraction(List<GameObject> marbles, bool isActive)
     {
         if (marbles == null)
-        {
             Debug.Log($"marbles do not exit");
-        }
         else
-        {
             foreach (GameObject marble in marbles)
-            {
                 SetMarbleInteraction(marble, isActive);
-            }
-        }
     }
 
     private void SetMarbleInteraction(GameObject marble, bool isActive)
@@ -120,6 +105,11 @@ public class TurnManager : MonoBehaviour
                 new GradientAlphaKey(1.0f, 0.0f), // Full opacity at time 0
                 new GradientAlphaKey(1.0f, 1.0f)  // Full opacity at time 1
             };
+
+            /* if (currentPlayer == 1)
+                 marble.GetComponent<MarblePlayer1>().enabled = isActive;
+             else
+                 marble.GetComponent<MarblePlayer2>().enabled = isActive;*/
         }
         else
         {//change blue
@@ -137,11 +127,16 @@ public class TurnManager : MonoBehaviour
                 new GradientAlphaKey(1.0f, 0.0f)  // Full opacity at time 1
             };
 
-            scriptName = SCRIPT_NAME + Convert.ToString((currentPlayer == 1) ? 2 : 1);// + ".cs";
+            /*scriptName = SCRIPT_NAME + Convert.ToString((currentPlayer == 1) ? 2 : 1);// + ".cs";
             // Debug.Log(scriptName + " script is disabled");
-            DisableScript(marble, scriptName);
+            // DisableScript(marble, scriptName);
+            if (currentPlayer == 1)
+                marble.GetComponent<MarblePlayer1>().enabled = !isActive;
+            else
+                marble.GetComponent<MarblePlayer2>().enabled = !isActive;*/
         }
         lr.colorGradient = gradient;
+        // ToggleScripts();
     }
 
     //TEST THESES THEN ADD TO START FUNCTION
@@ -162,9 +157,9 @@ public class TurnManager : MonoBehaviour
 
 
         //remove - just for testing
-        Debug.Log("Player 1 marbles");
+        /*Debug.Log("Player 1 marbles");
         foreach (var item in player1Marbles)
-            Debug.Log("\t" + item.name);
+            Debug.Log("\t" + item.name);*/
     }
 
     private void AddPlayer2Marbles()
@@ -183,15 +178,15 @@ public class TurnManager : MonoBehaviour
         player2Marbles.AddRange(GameObject.FindGameObjectsWithTag("Marble_6"));
 
         //remove - just for testing
-        Debug.Log("Player 2 marbles");
+        /*Debug.Log("Player 2 marbles");
         foreach (var item in player2Marbles)
-            Debug.Log("\t" + item.name);
+            Debug.Log("\t" + item.name);*/
     }
 
     void DisableScript(GameObject marble, string scriptName)
     {
         // Find the script by name and disable it
-        MonoBehaviour script = marble.GetComponent(scriptName) as MonoBehaviour;
+        /*MonoBehaviour script = marble.GetComponent(scriptName) as MonoBehaviour;
 
         if (script != null)
         {
@@ -201,7 +196,100 @@ public class TurnManager : MonoBehaviour
         else
         {
             Debug.LogWarning($"Script {scriptName} not found on {marble.name}");
+        }*/
+
+        if (currentPlayer == 1)
+        {
+            if (marble.TryGetComponent<MarblePlayer1>(out var marblePlayer1))
+                marblePlayer1.enabled = false;
+            // marblePlayer1.
         }
+        else
+        {
+            if (marble.TryGetComponent<MarblePlayer2>(out var marblePlayer2))
+                marblePlayer2.enabled = false;
+        }
+    }
+
+    void DisableScripts()
+    {
+        if (currentPlayer == 1)
+        {
+            foreach (var marble in player1Marbles)
+                if (marble.GetComponent<MarblePlayer1>() != null)
+                    Destroy(marble.GetComponent<MarblePlayer1>());
+        }
+        else
+        {
+            foreach (var marble in player2Marbles)
+                if (marble.GetComponent<MarblePlayer2>() != null)
+                    Destroy(marble.GetComponent<MarblePlayer2>());
+        }
+    }
+
+    void EnableScripts()
+    {
+        if (currentPlayer == 1)
+        {
+            foreach (var marble in player2Marbles)
+                if (marble.GetComponent<MarblePlayer2>() == null)
+                    marble.AddComponent<MarblePlayer2>();
+        }
+        else
+        {
+            foreach (var marble in player1Marbles)
+                if (marble.GetComponent<MarblePlayer1>() == null)
+                    marble.AddComponent<MarblePlayer1>();
+        }
+    }
+
+    void EnableScript(GameObject marble, string scriptName)
+    {
+        // Find the script by name and disable it
+        /*MonoBehaviour script = marble.GetComponent(scriptName) as MonoBehaviour;
+
+        if (script != null)
+        {
+            script.enabled = false; // Disable the script
+            Debug.Log($"{scriptName} has been disabled on {marble.name}");
+        }
+        else
+        {
+            Debug.LogWarning($"Script {scriptName} not found on {marble.name}");
+        }*/
+
+        if (currentPlayer == 1)
+        {
+            if (marble.TryGetComponent<MarblePlayer1>(out var marblePlayer1))
+                marblePlayer1.enabled = false;
+        }
+        else
+        {
+            if (marble.TryGetComponent<MarblePlayer2>(out var marblePlayer2))
+                marblePlayer2.enabled = false;
+        }
+    }
+
+    void ToggleScripts()
+    {
+        // Debug.Log($"{player1Marbles[0].name} script state {player1Marbles[0].GetComponent<MarblePlayer1>().enabled}");
+        // Debug.Log($"{player2Marbles[0].name} script state {player2Marbles[0].GetComponent<MarblePlayer2>().enabled}");
+        foreach (var marble in player1Marbles)
+        {
+            // Debug.Log($"{marble.name} script state {marble.GetComponent<MarblePlayer1>().enabled}");
+            marble.GetComponent<MarblePlayer1>().enabled = !marble.GetComponent<MarblePlayer1>().enabled;
+            // Debug.Log($"{marble.name} script state {marble.GetComponent<MarblePlayer1>().enabled}");
+        }
+
+        foreach (var marble in player2Marbles)
+        {
+            // Debug.Log($"{marble.name} script state {marble.GetComponent<MarblePlayer2>().enabled}");
+            marble.GetComponent<MarblePlayer2>().enabled = !marble.GetComponent<MarblePlayer2>().enabled;
+            // Debug.Log($"{marble.name} script state {marble.GetComponent<MarblePlayer2>().enabled}");
+        }
+
+        // Debug.Log($"{player1Marbles[0].name} script state {player1Marbles[0].GetComponent<MarblePlayer1>().enabled}");
+        // Debug.Log($"{player2Marbles[0].name} script state {player2Marbles[0].GetComponent<MarblePlayer2>().enabled}");
     }
 
 }
