@@ -47,12 +47,14 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(5);
     }
-    
 
     public void LoadMANURULESScene()
     {
         SceneManager.LoadScene(7);
     }
 
-
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
