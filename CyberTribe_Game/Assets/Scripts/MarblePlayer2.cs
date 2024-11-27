@@ -7,18 +7,18 @@ public class MarblePlayer2 : MonoBehaviour
     private GameObject MousePointA;
     private GameObject MousePointB;
     private LineRenderer lineRenderer;
-           // Scale factor for line length
+    // Scale factor for line length
 
     // Current Distance Variables
     private float CurrentDistance;
     public const float MaxDistance = 120f;
     private float SafeSpace = 0f;
     private float ShootPower = 0f;
-    private const float GOAL_LINE = 50f;
-    private float NORTH_GOAL_DEPTH = GameObject.Find("North Wall 1").transform.position.z;
-    private float SOUTH_GOAL_DEPTH = GameObject.Find("South Wall 1").transform.position.z;
-
+    // private const float GOAL_LINE = 50f;
     private Vector3 ShootDirection;
+
+    //Thori Testing
+    public bool isMoveMade = false;
 
     private void Awake()
     {
@@ -29,7 +29,13 @@ public class MarblePlayer2 : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = false; // Hide it initially
         lineRenderer.positionCount = 2; // Start with two points for a basic line
-        
+
+        // turnManager = FindObjectOfType<TurnManager>();
+        if (gameObject.GetComponent<TurnManager>() == null)
+        {
+            // Debug.LogError("TurnManager not found in the scene.");
+            gameObject.AddComponent<TurnManager>();
+        }
     }
 
     void Start()
@@ -93,6 +99,10 @@ public class MarblePlayer2 : MonoBehaviour
         // Apply force in the x-z plane only, restricting y
         Vector3 Push = new Vector3(ShootDirection.x, 0f, ShootDirection.z) * ShootPower * -1;
         GetComponent<Rigidbody>().AddForce(Push, ForceMode.Impulse);
+
+        // gameObject.GetComponent<TurnManager>().MoveMade();
+
+        isMoveMade = true;
     }
 
     private void UpdateLine()
@@ -134,7 +144,7 @@ public class MarblePlayer2 : MonoBehaviour
             lineEnd = hit.point + directionToExtend * maxReflectionDistance;
         }
 
-        
+
 
         // Add final extended position if no reflection
         lineRenderer.positionCount++;
@@ -143,36 +153,6 @@ public class MarblePlayer2 : MonoBehaviour
 
     void Update()
     {
-        Vector3 position = gameObject.transform.position;
- 
-        float x_pos = position.x;
-        float z_pos = position.z;
- 
-        // const float GOAL_LINE = 50f;
-        // float NORTH_GOAL_DEPTH = GameObject.Find("North Wall 1").transform.position.z;
-        // float SOUTH_GOAL_DEPTH = GameObject.Find("South Wall 1").transform.position.z;
- 
-        bool passed_north_goal = ((x_pos > -GOAL_LINE && x_pos < GOAL_LINE) && (z_pos < NORTH_GOAL_DEPTH));
-        bool passed_south_goal = ((x_pos > -GOAL_LINE && x_pos < GOAL_LINE) && (z_pos > SOUTH_GOAL_DEPTH));
- 
-        if (passed_north_goal)
-        {
-            Debug.Log("X Position: " + x_pos);
-            Debug.Log("Y Position: " + z_pos);
-            Debug.Log("passed north goal line.");
-        }
-        else if (passed_south_goal)
-        {
-            Debug.Log("X Position: " + x_pos);
-            Debug.Log("Y Position: " + z_pos);
-            Debug.Log("passed south goal line.");
-        }
-        else
-        {
-            Debug.Log("X Position: " + x_pos);
-            Debug.Log("Y Position: " + z_pos);
-            Debug.Log("ball still in play.");
-        }
- 
+
     }
 }
