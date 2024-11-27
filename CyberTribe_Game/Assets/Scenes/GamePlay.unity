@@ -1849,7 +1849,7 @@ GameObject:
   - component: {fileID: 684312371}
   - component: {fileID: 684312370}
   m_Layer: 0
-  m_Name: GameTimer
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1868,7 +1868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 979321985}
-  timeRemaining: 60
+  timeRemaining: 10
   timerRunning: 1
 --- !u!4 &684312371
 Transform:
