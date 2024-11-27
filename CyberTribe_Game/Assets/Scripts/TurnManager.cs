@@ -10,7 +10,7 @@ public class TurnManager : MonoBehaviour
     public List<GameObject> player2Marbles = new List<GameObject>();  // Player 2's marbles
     public float turnDuration = 15f;         // Duration of each turn in seconds
     private float timer;                     // Countdown timer
-    private int currentPlayer = 1;           // 1 for Player 1, 2 for Player 2
+    public int currentPlayer = 1;           // 1 for Player 1, 2 for Player 2
     const int NUM_MARBLES_PER_PLAYER = 6;
     private const string SCRIPT_NAME = "MarblePlayer"; // Name of the script to disable
     private string scriptName;
@@ -78,12 +78,12 @@ public class TurnManager : MonoBehaviour
             SetMarbleInteraction(player2Marbles, true);
         }
 
-        Debug.Log($"Player {currentPlayer}'s turn started. \t {gameObject.name}");
+        // Debug.Log($"Player {currentPlayer}'s turn started. \t {gameObject.name}");
     }
 
     void EndTurn()
     {
-        Debug.Log($"Player {currentPlayer}'s turn ended. \t {gameObject.name}");
+        // Debug.Log($"Player {currentPlayer}'s turn ended. \t {gameObject.name}");
         DisableScripts();
         EnableScripts();
 

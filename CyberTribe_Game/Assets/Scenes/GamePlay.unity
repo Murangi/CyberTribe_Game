@@ -384,6 +384,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2137624949}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2137624953}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2137624957}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &134932601 stripped
 GameObject:
@@ -573,6 +581,7 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
 --- !u!114 &134932614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,6 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!114 &134932618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +607,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c17f29017314f40b1588ff711e7e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &134932622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134932601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743a71070301b5d4e9ef717e955218c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1001 &147272436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -709,6 +732,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1368255410}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1368255414}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1368255418}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &203844586
 GameObject:
@@ -940,6 +971,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1981228635}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1981228639}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1981228643}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &294055209
 GameObject:
@@ -1041,7 +1080,7 @@ Transform:
   m_GameObject: {fileID: 294055209}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: -0, z: 0}
   m_LocalScale: {x: 50, y: 1, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1071,6 +1110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!120 &300477139
 LineRenderer:
   serializedVersion: 2
@@ -1247,6 +1287,32 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
+--- !u!114 &300477149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300477136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c17f29017314f40b1588ff711e7e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &300477153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300477136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743a71070301b5d4e9ef717e955218c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1 &381521930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1585,6 +1651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!114 &553647150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1657,6 +1724,32 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
+--- !u!114 &553647159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553647146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c17f29017314f40b1588ff711e7e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &553647163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553647146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743a71070301b5d4e9ef717e955218c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1001 &633763965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1769,6 +1862,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 962855928}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 962855932}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 962855936}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &795330679
 GameObject:
@@ -1872,6 +1973,7 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
 --- !u!1 &812296886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2093,6 +2195,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 891632780}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 891632784}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!4 &891632764 stripped
 Transform:
@@ -2145,6 +2251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!114 &891632768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2294,6 +2401,7 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
 --- !u!114 &891632780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2306,6 +2414,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c17f29017314f40b1588ff711e7e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &891632784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891632765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743a71070301b5d4e9ef717e955218c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2467,6 +2588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!120 &962855922
 LineRenderer:
   serializedVersion: 2
@@ -2643,6 +2765,32 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
+--- !u!114 &962855932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962855919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c17f29017314f40b1588ff711e7e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &962855936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962855919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743a71070301b5d4e9ef717e955218c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1001 &1025074606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2755,6 +2903,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1224301648}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1224301652}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1224301656}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &1224301639 stripped
 GameObject:
@@ -2884,6 +3040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!114 &1224301643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2956,6 +3113,32 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
+--- !u!114 &1224301652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224301639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c17f29017314f40b1588ff711e7e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1224301656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224301639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743a71070301b5d4e9ef717e955218c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1001 &1275588350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3072,6 +3255,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 134932618}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 134932622}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &1349770111
 GameObject:
@@ -3202,6 +3389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!120 &1368255404
 LineRenderer:
   serializedVersion: 2
@@ -3378,6 +3566,32 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
+--- !u!114 &1368255414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368255401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c17f29017314f40b1588ff711e7e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1368255418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368255401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743a71070301b5d4e9ef717e955218c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1001 &1511284817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3490,6 +3704,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 300477145}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 300477149}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 300477153}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &1513651953
 GameObject:
@@ -3813,6 +4035,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1600623856}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1600623860}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1600623864}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!4 &1600623843 stripped
 Transform:
@@ -3999,6 +4229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!114 &1600623856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4014,6 +4245,32 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
+--- !u!114 &1600623860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600623844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c17f29017314f40b1588ff711e7e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1600623864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600623844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743a71070301b5d4e9ef717e955218c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1001 &1631720877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4126,6 +4383,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1992744626}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1992744630}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1992744634}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &1661002297
 GameObject:
@@ -4428,6 +4693,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2112942507}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2112942511}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2112942515}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1001 &1972850509
 PrefabInstance:
@@ -4541,6 +4814,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 553647155}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 553647159}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 553647163}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &1981228626 stripped
 GameObject:
@@ -4670,6 +4951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!114 &1981228630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4742,6 +5024,32 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
+--- !u!114 &1981228639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981228626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c17f29017314f40b1588ff711e7e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1981228643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981228626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743a71070301b5d4e9ef717e955218c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1 &1992744617 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
@@ -4766,6 +5074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!120 &1992744620
 LineRenderer:
   serializedVersion: 2
@@ -4942,6 +5251,32 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
+--- !u!114 &1992744630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992744617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c17f29017314f40b1588ff711e7e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1992744634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992744617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743a71070301b5d4e9ef717e955218c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1 &2112942498 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
@@ -5070,6 +5405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!114 &2112942502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5142,6 +5478,32 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
+--- !u!114 &2112942511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112942498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c17f29017314f40b1588ff711e7e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2112942515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112942498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743a71070301b5d4e9ef717e955218c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1 &2137624940 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
@@ -5270,6 +5632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!114 &2137624944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5342,6 +5705,32 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
+--- !u!114 &2137624953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137624940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c17f29017314f40b1588ff711e7e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2137624957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137624940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743a71070301b5d4e9ef717e955218c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!1001 &5202590640064675726
 PrefabInstance:
   m_ObjectHideFlags: 0
