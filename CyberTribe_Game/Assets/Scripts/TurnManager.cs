@@ -23,7 +23,8 @@ public class TurnManager : MonoBehaviour
 
         //disable player 2 marbles
         foreach (var marble in player2Marbles)
-            Destroy(marble.GetComponent<MarblePlayer2>());
+            if (marble.GetComponent<MarblePlayer2>() != null)
+                Destroy(marble.GetComponent<MarblePlayer2>());
 
         StartTurn();
     }
@@ -35,6 +36,28 @@ public class TurnManager : MonoBehaviour
         // Check if the timer has run out
         if (timer <= 0)
             EndTurn();
+
+        if (currentPlayer == 1)
+        {
+            if (gameObject.GetComponent<MarblePlayer1>() != null)
+                if (gameObject.GetComponent<MarblePlayer1>().isMoveMade)
+                {
+                    gameObject.GetComponent<MarblePlayer1>().isMoveMade = false;
+                    EndTurn();
+                }
+        }
+        else
+        {
+            if (gameObject.GetComponent<MarblePlayer2>() != null)
+                if (gameObject.GetComponent<MarblePlayer2>().isMoveMade)
+                {
+                    gameObject.GetComponent<MarblePlayer2>().isMoveMade = false;
+                    EndTurn();
+                }
+        }
+
+
+
     }
 
     void StartTurn()
@@ -55,12 +78,12 @@ public class TurnManager : MonoBehaviour
             SetMarbleInteraction(player2Marbles, true);
         }
 
-        // Debug.Log("Player " + currentPlayer + "'s turn started.");
+        Debug.Log($"Player {currentPlayer}'s turn started. \t {gameObject.name}");
     }
 
     void EndTurn()
     {
-        // Debug.Log("Player " + currentPlayer + "'s turn ended.");
+        Debug.Log($"Player {currentPlayer}'s turn ended. \t {gameObject.name}");
         DisableScripts();
         EnableScripts();
 

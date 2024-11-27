@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MarblePlayer1 : MonoBehaviour
@@ -17,6 +18,11 @@ public class MarblePlayer1 : MonoBehaviour
     private float ShootPower = 0f;
     // private const float GOAL_LINE = 50f;
     private Vector3 ShootDirection;
+    // private TurnManager turnManager; // Reference to the TurnManager
+
+
+    //Thori Testing
+    public bool isMoveMade = false;
 
     private void Awake()
     {
@@ -27,6 +33,13 @@ public class MarblePlayer1 : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = false; // Hide it initially
         lineRenderer.positionCount = 2; // Start with two points for a basic line
+
+        // turnManager = FindObjectOfType<TurnManager>();
+        if (gameObject.GetComponent<TurnManager>() == null)
+        {
+            // Debug.LogError("TurnManager not found in the scene.");
+            gameObject.AddComponent<TurnManager>();
+        }
 
     }
 
@@ -86,7 +99,20 @@ public class MarblePlayer1 : MonoBehaviour
         // Apply force in the x-z plane only, restricting y
         Vector3 Push = new Vector3(ShootDirection.x, 0f, ShootDirection.z) * ShootPower * -1;
         GetComponent<Rigidbody>().AddForce(Push, ForceMode.Impulse);
-        GetComponent<TurnManager>().MoveMade();
+
+        // End the turn by calling MoveMade() in TurnManager
+        /*if (turnManager != null)
+        {
+            turnManager.MoveMade();
+        }
+        else
+        {
+            Debug.LogError("TurnManager reference is missing.");
+        }*/
+        // turnManager.MoveMade();
+        // gameObject.GetComponent<TurnManager>().MoveMade();
+        isMoveMade = true;
+
     }
 
     private void UpdateLine()

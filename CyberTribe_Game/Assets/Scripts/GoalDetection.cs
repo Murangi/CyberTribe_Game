@@ -5,8 +5,8 @@ using UnityEngine;
 public class GoalDetection : MonoBehaviour
 {
     private const float GOAL_LINE = 50f;
-    private float NORTH_GOAL_DEPTH = GameObject.Find("North Wall 1").transform.position.z;
-    private float SOUTH_GOAL_DEPTH = GameObject.Find("South Wall 1").transform.position.z;
+    private float NORTH_GOAL_DEPTH;
+    private float SOUTH_GOAL_DEPTH;
 
     Vector3 position;
     float x_pos;
@@ -15,7 +15,8 @@ public class GoalDetection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        NORTH_GOAL_DEPTH = GameObject.Find("North Wall 1").transform.position.z;
+        SOUTH_GOAL_DEPTH = GameObject.Find("South Wall 1").transform.position.z;
     }
 
     // Update is called once per frame
@@ -32,7 +33,7 @@ public class GoalDetection : MonoBehaviour
         x_pos = position.x;
         z_pos = position.z;
 
-        return ((x_pos > -GOAL_LINE && x_pos < GOAL_LINE) && (z_pos < NORTH_GOAL_DEPTH));
+        return ((x_pos >= -GOAL_LINE && x_pos <= GOAL_LINE) && (z_pos <= NORTH_GOAL_DEPTH));
     }
 
     private bool isPassedSouthGoal()
@@ -42,7 +43,7 @@ public class GoalDetection : MonoBehaviour
         x_pos = position.x;
         z_pos = position.z;
 
-        return ((x_pos > -GOAL_LINE && x_pos < GOAL_LINE) && (z_pos > SOUTH_GOAL_DEPTH));
+        return ((x_pos >= -GOAL_LINE && x_pos <= GOAL_LINE) && (z_pos >= SOUTH_GOAL_DEPTH));
     }
 
     public void GoalDetected()

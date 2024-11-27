@@ -17,6 +17,9 @@ public class MarblePlayer2 : MonoBehaviour
     // private const float GOAL_LINE = 50f;
     private Vector3 ShootDirection;
 
+    //Thori Testing
+    public bool isMoveMade = false;
+
     private void Awake()
     {
         MousePointA = GameObject.FindGameObjectWithTag("PointA");
@@ -27,6 +30,12 @@ public class MarblePlayer2 : MonoBehaviour
         lineRenderer.enabled = false; // Hide it initially
         lineRenderer.positionCount = 2; // Start with two points for a basic line
 
+        // turnManager = FindObjectOfType<TurnManager>();
+        if (gameObject.GetComponent<TurnManager>() == null)
+        {
+            // Debug.LogError("TurnManager not found in the scene.");
+            gameObject.AddComponent<TurnManager>();
+        }
     }
 
     void Start()
@@ -90,7 +99,10 @@ public class MarblePlayer2 : MonoBehaviour
         // Apply force in the x-z plane only, restricting y
         Vector3 Push = new Vector3(ShootDirection.x, 0f, ShootDirection.z) * ShootPower * -1;
         GetComponent<Rigidbody>().AddForce(Push, ForceMode.Impulse);
-        GetComponent<TurnManager>().MoveMade();
+
+        // gameObject.GetComponent<TurnManager>().MoveMade();
+
+        isMoveMade = true;
     }
 
     private void UpdateLine()
