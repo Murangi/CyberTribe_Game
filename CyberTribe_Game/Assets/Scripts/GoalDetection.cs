@@ -5,17 +5,18 @@ using UnityEngine;
 public class GoalDetection : MonoBehaviour
 {
     private const float GOAL_LINE = 50f;
-    private float NORTH_GOAL_DEPTH = GameObject.Find("North Wall 1").transform.position.z;
-    private float SOUTH_GOAL_DEPTH = GameObject.Find("South Wall 1").transform.position.z;
+    private float NORTH_GOAL_DEPTH;
+    private float SOUTH_GOAL_DEPTH;
 
-    Vector3 position;// = gameObject.transform.position;
-    float x_pos;// = position.x;
-    float z_pos;// = position.z;
+    Vector3 position;
+    float x_pos;
+    float z_pos;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        NORTH_GOAL_DEPTH = GameObject.Find("North Wall 1").transform.position.z;
+        SOUTH_GOAL_DEPTH = GameObject.Find("South Wall 1").transform.position.z;
     }
 
     // Update is called once per frame
@@ -32,7 +33,7 @@ public class GoalDetection : MonoBehaviour
         x_pos = position.x;
         z_pos = position.z;
 
-        return ((x_pos > -GOAL_LINE && x_pos < GOAL_LINE) && (z_pos < NORTH_GOAL_DEPTH));
+        return ((x_pos >= -GOAL_LINE && x_pos <= GOAL_LINE) && (z_pos <= NORTH_GOAL_DEPTH));
     }
 
     private bool isPassedSouthGoal()
@@ -42,26 +43,23 @@ public class GoalDetection : MonoBehaviour
         x_pos = position.x;
         z_pos = position.z;
 
-        return ((x_pos > -GOAL_LINE && x_pos < GOAL_LINE) && (z_pos > SOUTH_GOAL_DEPTH));
+        return ((x_pos >= -GOAL_LINE && x_pos <= GOAL_LINE) && (z_pos >= SOUTH_GOAL_DEPTH));
     }
 
-    void GoalDetected()
+    public void GoalDetected()
     {
         if (isPassedNorthGoal())
         {
             Debug.Log($"{gameObject.name} passed north goal line.");
             Destroy(gameObject);
+            // return true;
         }
         else if (isPassedSouthGoal())
         {
             Debug.Log($"{gameObject.name} passed south goal line.");
             Destroy(gameObject);
+            // return true;
         }
-        else
-        {
-            /*Debug.Log("X Position: " + x_pos);
-            Debug.Log("Y Position: " + z_pos);
-            Debug.Log("ball still in play.");*/
-        }
+        // return false;
     }
 }

@@ -10,7 +10,7 @@ public class TurnManager : MonoBehaviour
     public List<GameObject> player2Marbles = new List<GameObject>();  // Player 2's marbles
     public float turnDuration = 15f;         // Duration of each turn in seconds
     private float timer;                     // Countdown timer
-    private int currentPlayer = 1;           // 1 for Player 1, 2 for Player 2
+    public int currentPlayer = 1;           // 1 for Player 1, 2 for Player 2
     const int NUM_MARBLES_PER_PLAYER = 6;
     private const string SCRIPT_NAME = "MarblePlayer"; // Name of the script to disable
     private string scriptName;
@@ -23,7 +23,8 @@ public class TurnManager : MonoBehaviour
 
         //disable player 2 marbles
         foreach (var marble in player2Marbles)
-            Destroy(marble.GetComponent<MarblePlayer2>());
+            if (marble.GetComponent<MarblePlayer2>() != null)
+                Destroy(marble.GetComponent<MarblePlayer2>());
 
         StartTurn();
     }
@@ -35,6 +36,28 @@ public class TurnManager : MonoBehaviour
         // Check if the timer has run out
         if (timer <= 0)
             EndTurn();
+
+        if (currentPlayer == 1)
+        {
+            if (gameObject.GetComponent<MarblePlayer1>() != null)
+                if (gameObject.GetComponent<MarblePlayer1>().isMoveMade)
+                {
+                    gameObject.GetComponent<MarblePlayer1>().isMoveMade = false;
+                    EndTurn();
+                }
+        }
+        else
+        {
+            if (gameObject.GetComponent<MarblePlayer2>() != null)
+                if (gameObject.GetComponent<MarblePlayer2>().isMoveMade)
+                {
+                    gameObject.GetComponent<MarblePlayer2>().isMoveMade = false;
+                    EndTurn();
+                }
+        }
+
+
+
     }
 
     void StartTurn()
@@ -55,14 +78,14 @@ public class TurnManager : MonoBehaviour
             SetMarbleInteraction(player2Marbles, true);
         }
 
-        // Debug.Log("Player " + currentPlayer + "'s turn started.");
+        // Debug.Log($"Player {currentPlayer}'s turn started. \t {gameObject.name}");
     }
 
     void EndTurn()
     {
-        // Debug.Log("Player " + currentPlayer + "'s turn ended.");
-        EnableScripts();
+        // Debug.Log($"Player {currentPlayer}'s turn ended. \t {gameObject.name}");
         DisableScripts();
+        EnableScripts();
 
         // Switch player
         currentPlayer = (currentPlayer == 1) ? 2 : 1;
@@ -164,5 +187,10 @@ public class TurnManager : MonoBehaviour
                 if (marble.GetComponent<MarblePlayer1>() == null)
                     marble.AddComponent<MarblePlayer1>();
         }
+    }
+
+    public void MoveMade()
+    {
+        EndTurn();
     }
 }
