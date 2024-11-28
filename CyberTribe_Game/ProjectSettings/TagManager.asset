@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Marble_1
   - Marble_6
+  - PointA
+  - PointB
+  - Player_1
+  - Player_2
+  - Player1_Marble
+  - Player2_Marble
   layers:
   - Default
   - TransparentFX

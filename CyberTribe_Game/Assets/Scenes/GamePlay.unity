@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 1880273}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Untagged
+  m_TagString: Player_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,7 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d49c9666321454a9ddccdade40d850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ball2: {fileID: 0}
+  marbles: []
+  OpponentMarblesWon: []
+  TotalHealthPoints: 60
 --- !u!4 &1880274
 Transform:
   m_ObjectHideFlags: 0
@@ -486,7 +488,7 @@ PrefabInstance:
     - target: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       propertyPath: m_TagString
-      value: Marble_1
+      value: Player1_Marble
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -503,15 +505,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2137624943}
-    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2137624942}
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2137624949}
+      addedObject: {fileID: 2137624950}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &102802178
 GameObject:
@@ -754,35 +752,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &134932610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134932601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ce19d30be913c4da0b68b7982ee64c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1Marbles: []
-  player2Marbles: []
-  turnDuration: 15
-  currentPlayer: 1
---- !u!114 &134932614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134932601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMoveMade: 0
 --- !u!114 &134932618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,6 +764,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c17f29017314f40b1588ff711e7e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &134932619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134932601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5abe6f618a14a784daa9484638ca1539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!1001 &147272436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -881,7 +863,7 @@ PrefabInstance:
     - target: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       propertyPath: m_TagString
-      value: Marble_6
+      value: Player2_Marble
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -902,11 +884,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1368255403}
-    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1368255410}
+      addedObject: {fileID: 1368255411}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &203844586
 GameObject:
@@ -1112,7 +1090,7 @@ PrefabInstance:
     - target: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       propertyPath: m_TagString
-      value: Marble_1
+      value: Player1_Marble
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1129,15 +1107,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1981228629}
-    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1981228628}
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1981228635}
+      addedObject: {fileID: 1981228636}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &294055209
 GameObject:
@@ -1257,19 +1231,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1511284817}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &300477138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 300477136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMoveMade: 0
 --- !u!120 &300477139
 LineRenderer:
   serializedVersion: 2
@@ -1431,7 +1392,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &300477145
+--- !u!114 &300477146
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1440,13 +1401,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 300477136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ce19d30be913c4da0b68b7982ee64c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5abe6f618a14a784daa9484638ca1539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Marbles: []
-  player2Marbles: []
-  turnDuration: 15
-  currentPlayer: 1
+  isMoveMade: 0
 --- !u!1 &381521930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,19 +1731,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &553647149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553647146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMoveMade: 0
 --- !u!114 &553647150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1843,7 +1788,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &553647155
+--- !u!114 &553647156
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1852,13 +1797,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 553647146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ce19d30be913c4da0b68b7982ee64c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5abe6f618a14a784daa9484638ca1539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Marbles: []
-  player2Marbles: []
-  turnDuration: 15
-  currentPlayer: 1
+  isMoveMade: 0
 --- !u!1001 &633763965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1945,7 +1887,7 @@ PrefabInstance:
     - target: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       propertyPath: m_TagString
-      value: Marble_6
+      value: Player2_Marble
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1966,11 +1908,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 962855921}
-    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 962855928}
+      addedObject: {fileID: 962855929}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &684312369
 GameObject:
@@ -2019,6 +1957,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &737083067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 737083068}
+  - component: {fileID: 737083069}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &737083068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737083067}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 328.23654, y: 114.00924, z: 0.011184014}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &737083069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737083067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ce19d30be913c4da0b68b7982ee64c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnDuration: 15
+  currentPlayer: 1
 --- !u!1 &795330679
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,8 +2102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ce19d30be913c4da0b68b7982ee64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Marbles: []
-  player2Marbles: []
   turnDuration: 15
   currentPlayer: 1
 --- !u!1 &812296886
@@ -2313,7 +2295,7 @@ PrefabInstance:
     - target: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       propertyPath: m_TagString
-      value: Marble_1
+      value: Player1_Marble
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2330,15 +2312,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 891632767}
-    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 891632772}
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 891632776}
+      addedObject: {fileID: 891632777}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!4 &891632764 stripped
 Transform:
@@ -2379,19 +2357,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &891632767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891632765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMoveMade: 0
 --- !u!114 &891632768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2526,7 +2491,7 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &891632776
+--- !u!114 &891632777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2535,13 +2500,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 891632765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ce19d30be913c4da0b68b7982ee64c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5abe6f618a14a784daa9484638ca1539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Marbles: []
-  player2Marbles: []
-  turnDuration: 15
-  currentPlayer: 1
+  isMoveMade: 0
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2692,19 +2654,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 633763965}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &962855921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 962855919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMoveMade: 0
 --- !u!120 &962855922
 LineRenderer:
   serializedVersion: 2
@@ -2866,7 +2815,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &962855928
+--- !u!114 &962855929
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2875,13 +2824,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 962855919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ce19d30be913c4da0b68b7982ee64c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5abe6f618a14a784daa9484638ca1539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Marbles: []
-  player2Marbles: []
-  turnDuration: 15
-  currentPlayer: 1
+  isMoveMade: 0
 --- !u!1 &979321983
 GameObject:
   m_ObjectHideFlags: 0
@@ -3102,7 +3048,7 @@ PrefabInstance:
     - target: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       propertyPath: m_TagString
-      value: Marble_1
+      value: Player1_Marble
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3119,15 +3065,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1224301642}
-    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1224301641}
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1224301648}
+      addedObject: {fileID: 1224301649}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &1224301639 stripped
 GameObject:
@@ -3245,19 +3187,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &1224301642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224301639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMoveMade: 0
 --- !u!114 &1224301643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3315,7 +3244,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &1224301648
+--- !u!114 &1224301649
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3324,13 +3253,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1224301639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ce19d30be913c4da0b68b7982ee64c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5abe6f618a14a784daa9484638ca1539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Marbles: []
-  player2Marbles: []
-  turnDuration: 15
-  currentPlayer: 1
+  isMoveMade: 0
 --- !u!1001 &1275588350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3417,7 +3343,7 @@ PrefabInstance:
     - target: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       propertyPath: m_TagString
-      value: Marble_6
+      value: Player2_Marble
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3438,15 +3364,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 134932610}
-    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 134932614}
-    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 134932618}
+    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 134932619}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &1349770111
 GameObject:
@@ -3667,19 +3589,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 147272436}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1368255403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1368255401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMoveMade: 0
 --- !u!120 &1368255404
 LineRenderer:
   serializedVersion: 2
@@ -3841,7 +3750,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &1368255410
+--- !u!114 &1368255411
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3850,13 +3759,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1368255401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ce19d30be913c4da0b68b7982ee64c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5abe6f618a14a784daa9484638ca1539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Marbles: []
-  player2Marbles: []
-  turnDuration: 15
-  currentPlayer: 1
+  isMoveMade: 0
 --- !u!1001 &1511284817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3943,7 +3849,7 @@ PrefabInstance:
     - target: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       propertyPath: m_TagString
-      value: Marble_6
+      value: Player2_Marble
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3964,11 +3870,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 300477138}
-    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 300477145}
+      addedObject: {fileID: 300477146}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &1513651953
 GameObject:
@@ -4266,7 +4168,7 @@ PrefabInstance:
     - target: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       propertyPath: m_TagString
-      value: Marble_6
+      value: Player2_Marble
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4287,11 +4189,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1600623852}
-    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1600623856}
+      addedObject: {fileID: 1600623857}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!4 &1600623843 stripped
 Transform:
@@ -4466,7 +4364,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &1600623852
+--- !u!114 &1600623857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4475,26 +4373,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1600623844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 5abe6f618a14a784daa9484638ca1539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isMoveMade: 0
---- !u!114 &1600623856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1600623844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ce19d30be913c4da0b68b7982ee64c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1Marbles: []
-  player2Marbles: []
-  turnDuration: 15
-  currentPlayer: 1
 --- !u!1001 &1631720877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4581,7 +4463,7 @@ PrefabInstance:
     - target: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       propertyPath: m_TagString
-      value: Marble_6
+      value: Player2_Marble
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4602,11 +4484,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1992744619}
-    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1992744626}
+      addedObject: {fileID: 1992744627}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &1661002297
 GameObject:
@@ -4659,7 +4537,7 @@ GameObject:
   - component: {fileID: 1738198000}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: Player_1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4676,7 +4554,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db2e7ea8d41a7647b1ee5851fa2e032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ball1: {fileID: 0}
+  marbles: []
+  OpponentMarblesWon: []
+  TotalHealthPoints: 60
 --- !u!4 &1738198001
 Transform:
   m_ObjectHideFlags: 0
@@ -4883,7 +4763,7 @@ PrefabInstance:
     - target: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       propertyPath: m_TagString
-      value: Marble_1
+      value: Player1_Marble
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4900,15 +4780,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2112942501}
-    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2112942500}
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2112942507}
+      addedObject: {fileID: 2112942508}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1001 &1972850509
 PrefabInstance:
@@ -4996,7 +4872,7 @@ PrefabInstance:
     - target: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       propertyPath: m_TagString
-      value: Marble_1
+      value: Player1_Marble
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5013,15 +4889,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 553647149}
-    - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 553647148}
     - targetCorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 553647155}
+      addedObject: {fileID: 553647156}
   m_SourcePrefab: {fileID: 100100000, guid: a20ae833363ecbd4fa5b380519c88090, type: 3}
 --- !u!1 &1981228626 stripped
 GameObject:
@@ -5139,19 +5011,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &1981228629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1981228626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMoveMade: 0
 --- !u!114 &1981228630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5209,7 +5068,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &1981228635
+--- !u!114 &1981228636
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5218,13 +5077,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1981228626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ce19d30be913c4da0b68b7982ee64c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5abe6f618a14a784daa9484638ca1539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Marbles: []
-  player2Marbles: []
-  turnDuration: 15
-  currentPlayer: 1
+  isMoveMade: 0
 --- !u!1 &1992744617 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
@@ -5237,19 +5093,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1631720877}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1992744619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1992744617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMoveMade: 0
 --- !u!120 &1992744620
 LineRenderer:
   serializedVersion: 2
@@ -5411,7 +5254,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &1992744626
+--- !u!114 &1992744627
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5420,13 +5263,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1992744617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ce19d30be913c4da0b68b7982ee64c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5abe6f618a14a784daa9484638ca1539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Marbles: []
-  player2Marbles: []
-  turnDuration: 15
-  currentPlayer: 1
+  isMoveMade: 0
 --- !u!1 &2112942498 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
@@ -5543,19 +5383,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &2112942501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112942498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMoveMade: 0
 --- !u!114 &2112942502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5613,7 +5440,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &2112942507
+--- !u!114 &2112942508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5622,13 +5449,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2112942498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ce19d30be913c4da0b68b7982ee64c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5abe6f618a14a784daa9484638ca1539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Marbles: []
-  player2Marbles: []
-  turnDuration: 15
-  currentPlayer: 1
+  isMoveMade: 0
 --- !u!1 &2137624940 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
@@ -5745,19 +5569,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &2137624943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2137624940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMoveMade: 0
 --- !u!114 &2137624944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5815,7 +5626,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &2137624949
+--- !u!114 &2137624950
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5824,13 +5635,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2137624940}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ce19d30be913c4da0b68b7982ee64c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5abe6f618a14a784daa9484638ca1539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Marbles: []
-  player2Marbles: []
-  turnDuration: 15
-  currentPlayer: 1
+  isMoveMade: 0
 --- !u!1001 &5202590640064675726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5993,3 +5801,4 @@ SceneRoots:
   - {fileID: 102802181}
   - {fileID: 684312371}
   - {fileID: 96567120}
+  - {fileID: 737083068}

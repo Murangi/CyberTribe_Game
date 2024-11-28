@@ -9,18 +9,27 @@ public class TurnManager : MonoBehaviour
     public float turnDuration = 15f;         // Duration of each turn in seconds
     private float timer;                     // Countdown timer
     public int currentPlayer = 1;           // 1 for Player 1, 2 for Player 2
-    const int NUM_MARBLES_PER_PLAYER = 6;
     private const string SCRIPT_NAME = "MarblePlayer"; // Name of the script to disable
     private string scriptName;
+    GameObject player1;
+    GameObject player2;
+    List<GameObject> player1Marbles;
+    List<GameObject> player2Marbles;
 
     // Start is called before the first frame update
     void Start()
     {
+        player1 = GameObject.FindGameObjectWithTag("Player_1");
+        player2 = GameObject.FindGameObjectWithTag("Player_2");
+
+        player1Marbles = player1.GetComponent<Player1>().marbles;
+        player2Marbles = player2.GetComponent<Player2>().marbles;
 
         //disable player 2 marbles
-        foreach (var marble in player2Marbles)
-            if (marble.GetComponent<MarbleShooter>() != null)
-                Destroy(marble.GetComponent<MarbleShooter>());
+        if (player2Marbles != null)
+            foreach (var marble in player2Marbles)
+                if (marble.GetComponent<MarbleShooter>() != null)
+                    Destroy(marble.GetComponent<MarbleShooter>());
 
         StartTurn();
     }
@@ -32,28 +41,6 @@ public class TurnManager : MonoBehaviour
         // Check if the timer has run out
         if (timer <= 0)
             EndTurn();
-
-        if (currentPlayer == 1)
-        {
-            if (gameObject.GetComponent<MarbleShooter>() != null)
-                if (gameObject.GetComponent<MarbleShooter>().isMoveMade)
-                {
-                    gameObject.GetComponent<MarbleShooter>().isMoveMade = false;
-                    EndTurn();
-                }
-        }
-        else
-        {
-            if (gameObject.GetComponent<MarbleShooter>() != null)
-                if (gameObject.GetComponent<MarbleShooter>().isMoveMade)
-                {
-                    gameObject.GetComponent<MarbleShooter>().isMoveMade = false;
-                    EndTurn();
-                }
-        }
-
-
-
     }
 
     void StartTurn()
@@ -74,12 +61,12 @@ public class TurnManager : MonoBehaviour
             SetMarbleInteraction(player2Marbles, true);
         }
 
-        // Debug.Log($"Player {currentPlayer}'s turn started. \t {gameObject.name}");
+        Debug.Log($"Player {currentPlayer}'s turn started. \t {gameObject.name}");
     }
 
     void EndTurn()
     {
-        // Debug.Log($"Player {currentPlayer}'s turn ended. \t {gameObject.name}");
+        Debug.Log($"Player {currentPlayer}'s turn ended. \t {gameObject.name}");
         DisableScripts();
         EnableScripts();
 

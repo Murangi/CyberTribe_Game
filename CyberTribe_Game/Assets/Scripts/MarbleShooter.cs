@@ -28,9 +28,6 @@ public class MarbleShooter : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.enabled = false; // Hide it initially
         lineRenderer.positionCount = 2; // Start with two points for a basic line
-
-        if (gameObject.GetComponent<TurnManager>() == null)
-            gameObject.AddComponent<TurnManager>();
     }
 
     // Start is called before the first frame update
@@ -96,7 +93,12 @@ public class MarbleShooter : MonoBehaviour
         Vector3 Push = new Vector3(ShootDirection.x, 0f, ShootDirection.z) * ShootPower * -1;
         GetComponent<Rigidbody>().AddForce(Push, ForceMode.Impulse);
 
+        //notify player that a move has been made
         isMoveMade = true;
+        if (gameObject.tag == "Player1_Marble")
+            GameObject.FindGameObjectWithTag("Player_1").GetComponent<Player1>().isMoveMade = true;
+        else if (gameObject.tag == "Player2_Marble")
+            GameObject.FindGameObjectWithTag("Player_2").GetComponent<Player2>().isMoveMade = true;
     }
 
     private void UpdateLine()
