@@ -20,8 +20,6 @@ public class TurnManager : MonoBehaviour
     {
         AddPlayer1Marbles();
         AddPlayer2Marbles();
-
-
         
         //disable player 2 marbles
         foreach (var marble in player2Marbles)
