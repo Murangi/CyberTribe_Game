@@ -272,6 +272,134 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8419177}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &96567118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 96567120}
+  - component: {fileID: 96567119}
+  m_Layer: 0
+  m_Name: BackgroundMusicManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &96567119
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96567118}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &96567120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96567118}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &101990175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -641,6 +769,7 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
 --- !u!114 &134932614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,6 +782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!114 &134932618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1139,6 +1269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!120 &300477139
 LineRenderer:
   serializedVersion: 2
@@ -1315,6 +1446,7 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
 --- !u!1 &381521930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,6 +1785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!114 &553647150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1725,6 +1858,7 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
 --- !u!1001 &633763965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1987,6 +2121,7 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
 --- !u!1 &812296886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,6 +2391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!114 &891632768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2405,6 +2541,7 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2567,6 +2704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!120 &962855922
 LineRenderer:
   serializedVersion: 2
@@ -2743,6 +2881,7 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
 --- !u!1 &979321983
 GameObject:
   m_ObjectHideFlags: 0
@@ -3118,6 +3257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!114 &1224301643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3190,6 +3330,7 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
 --- !u!1001 &1275588350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3538,6 +3679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!120 &1368255404
 LineRenderer:
   serializedVersion: 2
@@ -3714,6 +3856,7 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
 --- !u!1001 &1511284817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4335,6 +4478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!114 &1600623856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4350,6 +4494,7 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
 --- !u!1001 &1631720877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5006,6 +5151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!114 &1981228630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5078,6 +5224,7 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
 --- !u!1 &1992744617 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
@@ -5102,6 +5249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5020f5cff595f04b9465bc506d578d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!120 &1992744620
 LineRenderer:
   serializedVersion: 2
@@ -5278,6 +5426,7 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
 --- !u!1 &2112942498 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
@@ -5406,6 +5555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!114 &2112942502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5478,6 +5628,7 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
 --- !u!1 &2137624940 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7045057127046394947, guid: a20ae833363ecbd4fa5b380519c88090,
@@ -5606,6 +5757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba487193f6e244a439259b2eb6475243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoveMade: 0
 --- !u!114 &2137624944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5678,6 +5830,7 @@ MonoBehaviour:
   player1Marbles: []
   player2Marbles: []
   turnDuration: 15
+  currentPlayer: 1
 --- !u!1001 &5202590640064675726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5839,3 +5992,4 @@ SceneRoots:
   - {fileID: 1354216544}
   - {fileID: 102802181}
   - {fileID: 684312371}
+  - {fileID: 96567120}
