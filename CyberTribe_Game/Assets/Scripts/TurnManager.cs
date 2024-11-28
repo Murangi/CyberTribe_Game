@@ -23,8 +23,8 @@ public class TurnManager : MonoBehaviour
 
         //disable player 2 marbles
         foreach (var marble in player2Marbles)
-            if (marble.GetComponent<MarblePlayer2>() != null)
-                Destroy(marble.GetComponent<MarblePlayer2>());
+            if (marble.GetComponent<MarbleShooter>() != null)
+                Destroy(marble.GetComponent<MarbleShooter>());
 
         StartTurn();
     }
@@ -39,19 +39,19 @@ public class TurnManager : MonoBehaviour
 
         if (currentPlayer == 1)
         {
-            if (gameObject.GetComponent<MarblePlayer1>() != null)
-                if (gameObject.GetComponent<MarblePlayer1>().isMoveMade)
+            if (gameObject.GetComponent<MarbleShooter>() != null)
+                if (gameObject.GetComponent<MarbleShooter>().isMoveMade)
                 {
-                    gameObject.GetComponent<MarblePlayer1>().isMoveMade = false;
+                    gameObject.GetComponent<MarbleShooter>().isMoveMade = false;
                     EndTurn();
                 }
         }
         else
         {
-            if (gameObject.GetComponent<MarblePlayer2>() != null)
-                if (gameObject.GetComponent<MarblePlayer2>().isMoveMade)
+            if (gameObject.GetComponent<MarbleShooter>() != null)
+                if (gameObject.GetComponent<MarbleShooter>().isMoveMade)
                 {
-                    gameObject.GetComponent<MarblePlayer2>().isMoveMade = false;
+                    gameObject.GetComponent<MarbleShooter>().isMoveMade = false;
                     EndTurn();
                 }
         }
@@ -162,14 +162,14 @@ public class TurnManager : MonoBehaviour
         if (currentPlayer == 1)
         {
             foreach (var marble in player1Marbles)
-                if (marble.GetComponent<MarblePlayer1>() != null)
-                    Destroy(marble.GetComponent<MarblePlayer1>());
+                if (marble.GetComponent<MarbleShooter>() != null)
+                    Destroy(marble.GetComponent<MarbleShooter>());
         }
         else
         {
             foreach (var marble in player2Marbles)
-                if (marble.GetComponent<MarblePlayer2>() != null)
-                    Destroy(marble.GetComponent<MarblePlayer2>());
+                if (marble.GetComponent<MarbleShooter>() != null)
+                    Destroy(marble.GetComponent<MarbleShooter>());
         }
     }
 
@@ -178,14 +178,14 @@ public class TurnManager : MonoBehaviour
         if (currentPlayer == 1)
         {
             foreach (var marble in player2Marbles)
-                if (marble.GetComponent<MarblePlayer2>() == null)
-                    marble.AddComponent<MarblePlayer2>();
+                if (marble.GetComponent<MarbleShooter>() == null)
+                    marble.AddComponent<MarbleShooter>();
         }
         else
         {
             foreach (var marble in player1Marbles)
-                if (marble.GetComponent<MarblePlayer1>() == null)
-                    marble.AddComponent<MarblePlayer1>();
+                if (marble.GetComponent<MarbleShooter>() == null)
+                    marble.AddComponent<MarbleShooter>();
         }
     }
 

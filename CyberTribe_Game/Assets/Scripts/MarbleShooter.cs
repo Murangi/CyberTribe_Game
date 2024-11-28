@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class MarblePlayer1 : MonoBehaviour
+public class MarbleShooter : MonoBehaviour
 {
     private GameObject MousePointA;
     private GameObject MousePointB;
     private LineRenderer lineRenderer;
-
     // Scale factor for line length
 
     // Current Distance Variables
@@ -16,10 +14,7 @@ public class MarblePlayer1 : MonoBehaviour
     public const float MaxDistance = 120f;
     private float SafeSpace = 0f;
     private float ShootPower = 0f;
-    // private const float GOAL_LINE = 50f;
     private Vector3 ShootDirection;
-    // private TurnManager turnManager; // Reference to the TurnManager
-
 
     //Thori Testing
     public bool isMoveMade = false;
@@ -34,12 +29,19 @@ public class MarblePlayer1 : MonoBehaviour
         lineRenderer.enabled = false; // Hide it initially
         lineRenderer.positionCount = 2; // Start with two points for a basic line
 
-        // turnManager = FindObjectOfType<TurnManager>();
         if (gameObject.GetComponent<TurnManager>() == null)
-        {
-            // Debug.LogError("TurnManager not found in the scene.");
             gameObject.AddComponent<TurnManager>();
-        }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
     }
 
@@ -55,13 +57,9 @@ public class MarblePlayer1 : MonoBehaviour
         CurrentDistance = Vector3.Distance(MousePointA.transform.position, transform.position);
 
         if (CurrentDistance <= MaxDistance)
-        {
             SafeSpace = CurrentDistance;
-        }
         else
-        {
             SafeSpace = MaxDistance;
-        }
 
         // Calculate shot power and direction
         ShootPower = Mathf.Abs(SafeSpace) * 10;
@@ -76,9 +74,7 @@ public class MarblePlayer1 : MonoBehaviour
             // Clamp MousePointB to MaxDistance if it exceeds it
             float MousePointBDistance = Vector3.Distance(MousePointB.transform.position, transform.position);
             if (MousePointBDistance > MaxDistance)
-            {
                 MousePointB.transform.position = transform.position + ((DimensionsXY / Difference) * MaxDistance * -1);
-            }
 
             // Restrict MousePointB to the marble’s y-position to keep it level
             MousePointB.transform.position = new Vector3(MousePointB.transform.position.x, transform.position.y, MousePointB.transform.position.z);
@@ -100,19 +96,7 @@ public class MarblePlayer1 : MonoBehaviour
         Vector3 Push = new Vector3(ShootDirection.x, 0f, ShootDirection.z) * ShootPower * -1;
         GetComponent<Rigidbody>().AddForce(Push, ForceMode.Impulse);
 
-        // End the turn by calling MoveMade() in TurnManager
-        /*if (turnManager != null)
-        {
-            turnManager.MoveMade();
-        }
-        else
-        {
-            Debug.LogError("TurnManager reference is missing.");
-        }*/
-        // turnManager.MoveMade();
-        // gameObject.GetComponent<TurnManager>().MoveMade();
         isMoveMade = true;
-
     }
 
     private void UpdateLine()
@@ -154,15 +138,8 @@ public class MarblePlayer1 : MonoBehaviour
             lineEnd = hit.point + directionToExtend * maxReflectionDistance;
         }
 
-
-
         // Add final extended position if no reflection
         lineRenderer.positionCount++;
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, lineEnd);
-    }
-
-    void Update()
-    {
-
     }
 }
