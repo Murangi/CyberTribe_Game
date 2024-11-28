@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
-    public List<GameObject> player1Marbles = new List<GameObject>();  // Player 1's marbles
-    public List<GameObject> player2Marbles = new List<GameObject>();  // Player 2's marbles
     public float turnDuration = 15f;         // Duration of each turn in seconds
     private float timer;                     // Countdown timer
     public int currentPlayer = 1;           // 1 for Player 1, 2 for Player 2
@@ -18,8 +16,6 @@ public class TurnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AddPlayer1Marbles();
-        AddPlayer2Marbles();
 
         //disable player 2 marbles
         foreach (var marble in player2Marbles)
@@ -144,17 +140,6 @@ public class TurnManager : MonoBehaviour
             };
         }
         lr.colorGradient = gradient;
-    }
-
-    //TEST THESES THEN ADD TO START FUNCTION
-    private void AddPlayer1Marbles()
-    {
-        player1Marbles.AddRange(GameObject.FindGameObjectsWithTag("Marble_1"));
-    }
-
-    private void AddPlayer2Marbles()
-    {
-        player2Marbles.AddRange(GameObject.FindGameObjectsWithTag("Marble_6"));
     }
 
     void DisableScripts()
