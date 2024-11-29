@@ -16,8 +16,8 @@ public class GoalDetection : MonoBehaviour
     void Start()
     {
         
-        NORTH_GOAL_DEPTH = GameObject.Find("North Wall 1").transform.position.z;
-        SOUTH_GOAL_DEPTH = GameObject.Find("South Wall 1").transform.position.z;
+        NORTH_GOAL_DEPTH = GameObject.Find("North Wall 1").transform.position.x;
+        SOUTH_GOAL_DEPTH = GameObject.Find("South Wall 1").transform.position.x;
        
     }
  
@@ -36,7 +36,7 @@ public class GoalDetection : MonoBehaviour
         z_pos = position.z;
  
         // return ((x_pos >= -GOAL_LINE && x_pos <= GOAL_LINE) && (z_pos <= NORTH_GOAL_DEPTH));
-        return ((x_pos >= -GOAL_LINE && x_pos <= GOAL_LINE) && (z_pos <= NORTH_GOAL_DEPTH));
+        return ((z_pos >= -GOAL_LINE && z_pos <= GOAL_LINE) && (x_pos >= NORTH_GOAL_DEPTH));
     }
  
     private bool isPassedSouthGoal()
@@ -46,7 +46,7 @@ public class GoalDetection : MonoBehaviour
         x_pos = position.x;
         z_pos = position.z;
  
-        return ((x_pos >= -GOAL_LINE && x_pos <= GOAL_LINE) && (z_pos >= SOUTH_GOAL_DEPTH));
+        return ((z_pos >= -GOAL_LINE && z_pos <= GOAL_LINE) && (x_pos <= SOUTH_GOAL_DEPTH));
     }
  
     public void GoalDetected()
