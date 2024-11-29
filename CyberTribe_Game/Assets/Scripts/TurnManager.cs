@@ -13,8 +13,8 @@ public class TurnManager : MonoBehaviour
     private string scriptName;
     GameObject player1;
     GameObject player2;
-    List<GameObject> player1Marbles;
-    List<GameObject> player2Marbles;
+    List<GameObject> player1Marbles = new List<GameObject>();
+    List<GameObject> player2Marbles = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -133,15 +133,17 @@ public class TurnManager : MonoBehaviour
     {
         if (currentPlayer == 1)
         {
-            foreach (var marble in player1Marbles)
-                if (marble.GetComponent<MarbleShooter>() != null)
-                    Destroy(marble.GetComponent<MarbleShooter>());
+            if (player1Marbles != null)
+                foreach (var marble in player1Marbles)
+                    if (marble.GetComponent<MarbleShooter>() != null)
+                        Destroy(marble.GetComponent<MarbleShooter>());
         }
         else
         {
-            foreach (var marble in player2Marbles)
-                if (marble.GetComponent<MarbleShooter>() != null)
-                    Destroy(marble.GetComponent<MarbleShooter>());
+            if (player2Marbles != null)
+                foreach (var marble in player2Marbles)
+                    if (marble.GetComponent<MarbleShooter>() != null)
+                        Destroy(marble.GetComponent<MarbleShooter>());
         }
     }
 
@@ -149,15 +151,17 @@ public class TurnManager : MonoBehaviour
     {
         if (currentPlayer == 1)
         {
-            foreach (var marble in player2Marbles)
-                if (marble.GetComponent<MarbleShooter>() == null)
-                    marble.AddComponent<MarbleShooter>();
+            if (player2Marbles != null)
+                foreach (var marble in player2Marbles)
+                    if (marble.GetComponent<MarbleShooter>() == null)
+                        marble.AddComponent<MarbleShooter>();
         }
         else
         {
-            foreach (var marble in player1Marbles)
-                if (marble.GetComponent<MarbleShooter>() == null)
-                    marble.AddComponent<MarbleShooter>();
+            if (player1Marbles != null)
+                foreach (var marble in player1Marbles)
+                    if (marble.GetComponent<MarbleShooter>() == null)
+                        marble.AddComponent<MarbleShooter>();
         }
     }
 
@@ -166,39 +170,3 @@ public class TurnManager : MonoBehaviour
         EndTurn();
     }
 }
-/*using UnityEngine;
-
-
-public class MarbleHealth : MonoBehaviour
-{
-    public int health = 10; // Starting health points for the marble
-    private string OpponentTag;
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        OpponentTag = (gameObject.GetComponent<TurnManager>().currentPlayer == 1) ? "Marble_1" : "Marble_6";
-
-        // Check if the collision is with an opponent's marble
-        if (collision.gameObject.CompareTag(OpponentTag))
-        {
-            collision.gameObject.GetComponent<MarbleHealth>().TakeDamage(1);
-            Debug.Log($"{gameObject.name} was hit! Remaining health: {health}\t\t hit by marble{collision.gameObject.name}");
-
-            // Check if health is zero or less
-            if (health <= 0)
-                DestroyMarble();
-        }
-    }
-
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-    }
-
-    private void DestroyMarble()
-    {
-        // Debug.Log($"{gameObject.name} is destroyed!");
-        Destroy(gameObject);
-    }
-}
-*/

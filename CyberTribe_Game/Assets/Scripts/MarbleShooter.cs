@@ -16,9 +16,6 @@ public class MarbleShooter : MonoBehaviour
     private float ShootPower = 0f;
     private Vector3 ShootDirection;
 
-    //Thori Testing
-    public bool isMoveMade = false;
-
     private void Awake()
     {
         MousePointA = GameObject.FindGameObjectWithTag("PointA");
@@ -94,7 +91,6 @@ public class MarbleShooter : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(Push, ForceMode.Impulse);
 
         //notify player that a move has been made
-        isMoveMade = true;
         if (gameObject.tag == "Player1_Marble")
             GameObject.FindGameObjectWithTag("Player_1").GetComponent<Player1>().isMoveMade = true;
         else if (gameObject.tag == "Player2_Marble")

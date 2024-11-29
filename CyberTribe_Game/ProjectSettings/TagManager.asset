@@ -12,6 +12,8 @@ TagManager:
   - Player_2
   - Player1_Marble
   - Player2_Marble
+  - TurnManager
+  - GameManager
   layers:
   - Default
   - TransparentFX
