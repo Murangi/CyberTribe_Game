@@ -50,4 +50,9 @@ public class BackgroundMusicController : MonoBehaviour
     {
         audioSource.mute = isMuted;
     }
+
+    public void SetVolume(float volume)
+    {
+        audioSource.volume = Mathf.Clamp01(volume / 100f); // Volume between 0 and 1
+    }
 }
