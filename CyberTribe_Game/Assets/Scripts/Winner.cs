@@ -1,18 +1,96 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+ 
 public class Winner : MonoBehaviour
 {
+ 
+    //To determine the winner, we need to check if either player has no marbles left, or the collective health points
     // Start is called before the first frame update
-    void Start()
+ 
+    private string GameState = "Playing";
+    private bool GameEnded = false;
+    public List<GameObject> RemainingPlayer1Marbles = new List<GameObject>();  // Player 1's marbles
+    public List<GameObject> RemainingPlayer2Marbles = new List<GameObject>();
+ 
+ 
+    void Awake()
     {
         
+        RemainingPlayer1Marbles.AddRange(TurnManager.player1Marbles);
+        RemainingPlayer2Marbles.AddRange(TurnManager.player2Marbles);
+ 
+        UpdateRemainingMarbles(); // Initialize marble lists dynamically
     }
-
+ 
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateRemainingMarbles();
+
+        string newGameState = DetermineWinner();
+
+        if (newGameState != GameState)
+        {
+            GameState = newGameState;
+
+            if (GameState == "Player1")
+            {
+                Debug.Log("Player1 is the winner");
+            }
+            else if (GameState == "Player2")
+            {
+                Debug.Log("Player2 is the winner");
+            }
+            else if (GameState == "Draw")
+            {
+                Debug.Log("It is a draw");
+            }
+        }
+    }
+ 
+    private void UpdateRemainingMarbles()
+    {
+        // Remove null entries for destroyed marbles
+        RemainingPlayer1Marbles.RemoveAll(marble => marble == null);
+        RemainingPlayer2Marbles.RemoveAll(marble => marble == null);
+    }
+ 
+    public string DetermineWinner()
+    {
+        int Marble1TotalHealth = 0;
+        int Marble2TotalHealth = 0;
+        string winner = "Draw";
+ 
+        UpdateRemainingMarbles();
+ 
+        if (RemainingPlayer1Marbles.Count > RemainingPlayer2Marbles.Count)
+            return "Player1";
+ 
+        if (RemainingPlayer1Marbles.Count < RemainingPlayer2Marbles.Count)
+            return "Player2";
+ 
+        if (RemainingPlayer1Marbles.Count == RemainingPlayer2Marbles.Count)
+        {
+            foreach (var marble in RemainingPlayer1Marbles)
+                if (marble != null)
+                    Marble1TotalHealth += marble.GetComponent<MarbleHealth>().health;
+ 
+            foreach (var marble in RemainingPlayer2Marbles)
+                if (marble != null)
+                    Marble2TotalHealth += marble.GetComponent<MarbleHealth>().health;
+ 
+            if (Marble1TotalHealth > Marble2TotalHealth)
+                return "Player1";
+ 
+            if (Marble2TotalHealth > Marble1TotalHealth)
+                return "Player2";
+ 
+            return "Draw";
+        }
+ 
+        return winner;
+ 
     }
 }

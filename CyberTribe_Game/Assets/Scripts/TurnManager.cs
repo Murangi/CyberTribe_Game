@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
-    public List<GameObject> player1Marbles = new List<GameObject>();  // Player 1's marbles
-    public List<GameObject> player2Marbles = new List<GameObject>();  // Player 2's marbles
+    public static List<GameObject> player1Marbles = new List<GameObject>();  // Player 1's marbles
+    public static List<GameObject> player2Marbles = new List<GameObject>();  // Player 2's marbles
     public float turnDuration = 15f;         // Duration of each turn in seconds
     private float timer;                     // Countdown timer
     public int currentPlayer = 1;           // 1 for Player 1, 2 for Player 2
@@ -88,12 +88,12 @@ public class TurnManager : MonoBehaviour
             DestroyScripts(player1Marbles, typeof(MarblePlayer1));
         }
 
-        Debug.Log($"Player {currentPlayer}'s turn started.");
+        //Debug.Log($"Player {currentPlayer}'s turn started.");
     }
 
     void EndTurn()
     {
-        Debug.Log($"Player {currentPlayer}'s turn ended.");
+        //Debug.Log($"Player {currentPlayer}'s turn ended.");
 
         // Switch player
         currentPlayer = (currentPlayer == 1) ? 2 : 1;
