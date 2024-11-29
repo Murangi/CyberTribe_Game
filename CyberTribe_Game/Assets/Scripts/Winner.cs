@@ -18,8 +18,11 @@ public class Winner : MonoBehaviour
     void Awake()
     {
         
-        RemainingPlayer1Marbles.AddRange(TurnManager.player1Marbles);
-        RemainingPlayer2Marbles.AddRange(TurnManager.player2Marbles);
+        RemainingPlayer1Marbles.AddRange(GameObject.FindGameObjectsWithTag("Marble_1"));
+        RemainingPlayer2Marbles.AddRange(GameObject.FindGameObjectsWithTag("Marble_6"));
+
+        // Debug.Log($"Player 1 remaining marbles: {RemainingPlayer1Marbles.Count}");
+        // Debug.Log($"Player 2 remaining marbles: {RemainingPlayer2Marbles.Count}");
  
         UpdateRemainingMarbles(); // Initialize marble lists dynamically
     }
@@ -83,6 +86,9 @@ public class Winner : MonoBehaviour
  
         UpdateRemainingMarbles();
  
+        if (RemainingPlayer1Marbles.Count == 0 && RemainingPlayer2Marbles.Count == 0)
+            return "Draw";
+
         if (RemainingPlayer1Marbles.Count > RemainingPlayer2Marbles.Count)
             return "Player1";
  
@@ -93,11 +99,13 @@ public class Winner : MonoBehaviour
         {
             foreach (var marble in RemainingPlayer1Marbles)
                 if (marble != null)
-                    Marble1TotalHealth += marble.GetComponent<MarbleHealth>().health;
+                    if (marble.GetComponent<MarbleHealth>())
+                        Marble1TotalHealth += marble.GetComponent<MarbleHealth>().health;
  
             foreach (var marble in RemainingPlayer2Marbles)
                 if (marble != null)
-                    Marble2TotalHealth += marble.GetComponent<MarbleHealth>().health;
+                    if (marble.GetComponent<MarbleHealth>())
+                        Marble2TotalHealth += marble.GetComponent<MarbleHealth>().health;
  
             if (Marble1TotalHealth > Marble2TotalHealth)
                 return "Player1";
@@ -112,3 +120,4 @@ public class Winner : MonoBehaviour
  
     }
 }
+

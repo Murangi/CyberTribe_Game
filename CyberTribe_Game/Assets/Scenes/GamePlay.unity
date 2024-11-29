@@ -727,7 +727,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnDuration: 15
   currentPlayer: 1
-  currentPlayer: 1
 --- !u!114 &134932614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1972,6 +1971,7 @@ GameObject:
   m_Component:
   - component: {fileID: 684312371}
   - component: {fileID: 684312370}
+  - component: {fileID: 684312372}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1992,7 +1992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 979321985}
-  timeRemaining: 120
+  timeRemaining: 10
   timerRunning: 1
 --- !u!4 &684312371
 Transform:
@@ -2009,6 +2009,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &684312372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684312369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77665aca6b6f2f43a2340251d28dbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RemainingPlayer1Marbles: []
+  RemainingPlayer2Marbles: []
 --- !u!1 &795330679
 GameObject:
   m_ObjectHideFlags: 0
@@ -6095,3 +6109,5 @@ SceneRoots:
   - {fileID: 1354216544}
   - {fileID: 102802181}
   - {fileID: 684312371}
+  - {fileID: 96567120}
+  - {fileID: 1963078521}
