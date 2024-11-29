@@ -31,22 +31,40 @@ public class Winner : MonoBehaviour
 
         string newGameState = DetermineWinner();
 
-        if (newGameState != GameState)
+        //It can either be player1 that wins, player2 that wins, or a draw.
+        GameState = DetermineWinner();
+        Debug.Log(GameState);
+ 
+        if (GameState != "Playing" && !GameEnded)
         {
-            GameState = newGameState;
-
-            if (GameState == "Player1")
-            {
-                Debug.Log("Player1 is the winner");
-            }
-            else if (GameState == "Player2")
-            {
-                Debug.Log("Player2 is the winner");
-            }
-            else if (GameState == "Draw")
-            {
-                Debug.Log("It is a draw");
-            }
+            GameEnded = true;
+            Debug.Log("The winner is: " + GameState);
+ 
+            // Load GameOver scene
+            SceneManager.LoadScene(8);
+        }
+ 
+        if(GameState == "Player1")
+        {
+            Debug.Log("The winner is: " + GameState);
+            GameEnded = true;
+ 
+        }
+        else if(GameState == "Player2")
+        {
+            Debug.Log("The winner is: " + GameState);
+            GameEnded = true;
+        }
+        else if(GameState == "Draw")
+        {
+            Debug.Log("The winner is: " + GameState);
+            GameEnded = true;
+        }
+ 
+        if(GameEnded)
+        {  
+            //This takes us to the GameOver scene
+            SceneManager.LoadScene(8);
         }
     }
  
