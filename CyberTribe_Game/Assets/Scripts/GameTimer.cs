@@ -39,6 +39,7 @@ public class GameTimer : MonoBehaviour
 
     void OnTimerEnd()
     {
+        Debug.Log($"Result: {gameObject.GetComponent<Winner>().DetermineWinner()}");
         SceneManager.LoadScene(8); // Load the "GameOver" scene when the timer ends
         // Add any additional behavior for when the timer ends
     }
