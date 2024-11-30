@@ -2403,6 +2403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391de39c2f91c734d9e3626193a69e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player1Tribe: 
+  Player2Tribe: 
 --- !u!4 &1281479800
 Transform:
   m_ObjectHideFlags: 0

@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public string Player1Tribe;
+    public string Player2Tribe;
+
     // Start is called before the first frame update
     public void LoadNextcene()
     {
@@ -57,6 +60,6 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
     }
-    
 
+    
 }
