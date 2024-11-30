@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +14,8 @@ public class Winner : MonoBehaviour
     private bool GameEnded = false;
     public List<GameObject> RemainingPlayer1Marbles = new List<GameObject>();  // Player 1's marbles
     public List<GameObject> RemainingPlayer2Marbles = new List<GameObject>();
+    public int TotalPlayer1HP;
+    public int TotalPlayer2HP;
 
 
     void Awake()
@@ -23,6 +26,12 @@ public class Winner : MonoBehaviour
 
         // Debug.Log($"Player 1 remaining marbles: {RemainingPlayer1Marbles.Count}");
         // Debug.Log($"Player 2 remaining marbles: {RemainingPlayer2Marbles.Count}");
+
+        TotalPlayer1HP = MarbleHealth.MAX_MARBLE_HP * RemainingPlayer1Marbles.Count;
+        TotalPlayer2HP = MarbleHealth.MAX_MARBLE_HP * RemainingPlayer2Marbles.Count;
+
+        Debug.Log($"Player 1 total health: {TotalPlayer1HP}");
+        Debug.Log($"Player 2 total health: {TotalPlayer2HP}");
 
         UpdateRemainingMarbles(); // Initialize marble lists dynamically
     }
